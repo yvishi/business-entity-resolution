@@ -1,0 +1,37 @@
+
+[train US] S1=1,323,633; share of S1 whose exact normalised name is shared by another S1 in partition: 12.5%
+  unique-name S1 sampled: 40,000; with >=1 exact-name pool record: 62.7%; mean exact-name pool records per such S1: 1.61
+  exact-name pool records: same house number 77.5%; >=50% of S1 street words shared 87.4%; empty address 0.0%
+  (train check) exact-name pool records that are TRUE matches: 96.4%; true-match rate when house number differs: 83.9%
+
+[train India] S1=883,188; share of S1 whose exact normalised name is shared by another S1 in partition: 25.8%
+  unique-name S1 sampled: 40,000; with >=1 exact-name pool record: 59.5%; mean exact-name pool records per such S1: 1.73
+  exact-name pool records: same house number 62.2%; >=50% of S1 street words shared 76.7%; empty address 0.0%
+  (train check) exact-name pool records that are TRUE matches: 93.2%; true-match rate when house number differs: 82.1%
+
+[test US] S1=663,106; share of S1 whose exact normalised name is shared by another S1 in partition: 9.2%
+  unique-name S1 sampled: 40,000; with >=1 exact-name pool record: 62.8%; mean exact-name pool records per such S1: 1.63
+  exact-name pool records: same house number 77.4%; >=50% of S1 street words shared 87.4%; empty address 0.0%
+
+[test India] S1=809,986; share of S1 whose exact normalised name is shared by another S1 in partition: 25.0%
+  unique-name S1 sampled: 40,000; with >=1 exact-name pool record: 59.7%; mean exact-name pool records per such S1: 1.81
+  exact-name pool records: same house number 60.3%; >=50% of S1 street words shared 73.9%; empty address 0.0%
+
+[test France] S1=259,452; share of S1 whose exact normalised name is shared by another S1 in partition: 25.7%
+  unique-name S1 sampled: 40,000; with >=1 exact-name pool record: 77.7%; mean exact-name pool records per such S1: 1.98
+  exact-name pool records: same house number 86.2%; >=50% of S1 street words shared 94.7%; empty address 0.0%
+
+France examples (unique-name S1 and its exact-name pool records):
+  S1 'professionnelle parents sci' | '5 bis rue robert surcouf saint nazaire'
+       -> '5b rue robert surcouf saint nazaire'
+  S1 'ehpad team' | '16 rue michelet la teste de buch'
+       -> '17 rue michelet la teste de buch'
+  S1 'pharmacie lamicale' | '4 rue de bolivie nantes'
+       -> '4 rue de bolivie nantes'
+  S1 'maison leglise' | '1 rue henri eugene gouillard nantes'
+       -> '01 rue henri eugene gouillmrd nantes'
+  S1 'smarves productions compagnie sarl' | '19 avenue alfred lefrancois tourcoing'
+       -> '19 avenue alfred lefrancois tourcoing'
+       -> '19 avenue alfred lefrancois tourcoing'
+  S1 'feminin maison sarl' | '27 avenue charles lesca lege cap ferret'
+       -> '27 avenue charles lesca lege cap ferret'

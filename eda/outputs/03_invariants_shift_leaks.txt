@@ -1,0 +1,79 @@
+# (a) cluster size by country
+shape: (2, 7)
+┌─────────┬─────────┬────────────────┬──────────┬──────────┬──────────┬─────┐
+│ country ┆ len     ┆ singleton_rate ┆ mean_n   ┆ no_S2    ┆ no_S3    ┆ p99 │
+│ ---     ┆ ---     ┆ ---            ┆ ---      ┆ ---      ┆ ---      ┆ --- │
+│ cat     ┆ u32     ┆ f64            ┆ f64      ┆ f64      ┆ f64      ┆ f64 │
+╞═════════╪═════════╪════════════════╪══════════╪══════════╪══════════╪═════╡
+│ US      ┆ 1323633 ┆ 0.055828       ┆ 3.459057 ┆ 0.130507 ┆ 0.12067  ┆ 8.0 │
+│ India   ┆ 883188  ┆ 0.055878       ┆ 3.464543 ┆ 0.130211 ┆ 0.120646 ┆ 8.0 │
+└─────────┴─────────┴────────────────┴──────────┴──────────┴──────────┴─────┘
+
+# (b) leak audit
+row-order corr S1 row vs S2 row of matches: 0.0010
+ID-number corr S1 vs S2 match: 0.0001
+clusters with >=2 S2 members whose closest pair of rows is adjacent (diff==1): 0.0000
+S1 id number range: 217 999998822
+
+# (c) invariants in true pairs (share of pairs where S1 field survives in target)
+shape: (30, 3)
+┌─────────────────────────────────┬────────┬───────┐
+│ invariant                       ┆ rate   ┆ n     │
+│ ---                             ┆ ---    ┆ ---   │
+│ str                             ┆ f64    ┆ i64   │
+╞═════════════════════════════════╪════════╪═══════╡
+│ India-S2 >=1 address word(len>… ┆ 0.9997 ┆ 55872 │
+│ India-S2 >=50% address words s… ┆ 0.9328 ┆ 55872 │
+│ India-S2 name >=1 core word sh… ┆ 0.769  ┆ 55798 │
+│ India-S2 name first core word … ┆ 0.7466 ┆ 55798 │
+│ India-S2 state (latin, exact)   ┆ 0.7675 ┆ 55872 │
+│ India-S3 >=1 address word(len>… ┆ 0.9955 ┆ 59788 │
+│ India-S3 >=50% address words s… ┆ 0.7551 ┆ 59788 │
+│ India-S3 name >=1 core word sh… ┆ 0.8473 ┆ 59701 │
+│ India-S3 name first core word … ┆ 0.8226 ┆ 59701 │
+│ India-S3 state (latin, exact)   ┆ 0.3044 ┆ 59788 │
+│ US-S2 city exact substring      ┆ 0.8355 ┆ 82667 │
+│ US-S2 city fuzzy>=85            ┆ 0.8909 ┆ 82667 │
+│ US-S2 house# (exact or zero-pa… ┆ 0.8186 ┆ 81830 │
+│ US-S2 house# last2 digits       ┆ 0.8457 ┆ 81830 │
+│ US-S2 name >=1 core word share… ┆ 0.9715 ┆ 82681 │
+│ US-S2 name first core word (su… ┆ 0.9461 ┆ 82681 │
+│ US-S2 state(code or name)       ┆ 1.0    ┆ 82685 │
+│ US-S2 street core token exact   ┆ 0.8564 ┆ 79373 │
+│ US-S2 street core token fuzzy>… ┆ 0.8782 ┆ 79373 │
+│ US-S2 zip5                      ┆ 0.8097 ┆ 9035  │
+│ US-S3 city exact substring      ┆ 0.8454 ┆ 88374 │
+│ US-S3 city fuzzy>=85            ┆ 0.8986 ┆ 88374 │
+│ US-S3 house# (exact or zero-pa… ┆ 0.831  ┆ 87537 │
+│ US-S3 house# last2 digits       ┆ 0.8563 ┆ 87537 │
+│ US-S3 name >=1 core word share… ┆ 0.9697 ┆ 88389 │
+│ US-S3 name first core word (su… ┆ 0.9451 ┆ 88389 │
+│ US-S3 state(code or name)       ┆ 1.0    ┆ 88395 │
+│ US-S3 street core token exact   ┆ 0.8664 ┆ 84984 │
+│ US-S3 street core token fuzzy>… ┆ 0.886  ┆ 84984 │
+│ US-S3 zip5                      ┆ 0.8251 ┆ 9504  │
+└─────────────────────────────────┴────────┴───────┘
+
+# (d) single-record profile, train vs test
+shape: (15, 12)
+┌──────────┬─────────┬─────────┬─────────────┬───┬─────────────┬─────────┬──────────┬──────────┐
+│ file     ┆ country ┆ rows    ┆ indic_name% ┆ … ┆ upper_addr% ┆ accent% ┆ name_len ┆ addr_len │
+│ ---      ┆ ---     ┆ ---     ┆ ---         ┆   ┆ ---         ┆ ---     ┆ ---      ┆ ---      │
+│ str      ┆ str     ┆ u32     ┆ f64         ┆   ┆ f64         ┆ f64     ┆ f64      ┆ f64      │
+╞══════════╪═════════╪═════════╪═════════════╪═══╪═════════════╪═════════╪══════════╪══════════╡
+│ train_S1 ┆ India   ┆ 883188  ┆ 0.0         ┆ … ┆ 0.0         ┆ 0.0     ┆ 26.4     ┆ 77.7     │
+│ train_S1 ┆ US      ┆ 1323633 ┆ 0.0         ┆ … ┆ 0.0         ┆ 0.0     ┆ 22.5     ┆ 35.0     │
+│ train_S2 ┆ India   ┆ 2017799 ┆ 23.51       ┆ … ┆ 26.73       ┆ 4.37    ┆ 27.4     ┆ 68.2     │
+│ train_S2 ┆ US      ┆ 3016817 ┆ 0.0         ┆ … ┆ 93.5        ┆ 6.7     ┆ 23.6     ┆ 31.5     │
+│ train_S3 ┆ India   ┆ 2115547 ┆ 13.17       ┆ … ┆ 3.11        ┆ 5.32    ┆ 27.0     ┆ 59.1     │
+│ train_S3 ┆ US      ┆ 3170056 ┆ 0.0         ┆ … ┆ 3.5         ┆ 6.8     ┆ 24.0     ┆ 38.4     │
+│ test_S1  ┆ France  ┆ 259452  ┆ 0.0         ┆ … ┆ 0.0         ┆ 15.72   ┆ 19.4     ┆ 50.1     │
+│ test_S1  ┆ India   ┆ 809986  ┆ 0.0         ┆ … ┆ 0.0         ┆ 0.0     ┆ 26.4     ┆ 77.7     │
+│ test_S1  ┆ US      ┆ 663106  ┆ 0.0         ┆ … ┆ 0.0         ┆ 0.0     ┆ 22.5     ┆ 35.0     │
+│ test_S2  ┆ France  ┆ 703378  ┆ 0.0         ┆ … ┆ 32.04       ┆ 24.54   ┆ 21.1     ┆ 39.5     │
+│ test_S2  ┆ India   ┆ 2312565 ┆ 23.64       ┆ … ┆ 26.28       ┆ 3.98    ┆ 28.3     ┆ 68.7     │
+│ test_S2  ┆ US      ┆ 1871330 ┆ 0.0         ┆ … ┆ 93.42       ┆ 6.25    ┆ 24.3     ┆ 31.8     │
+│ test_S3  ┆ France  ┆ 731615  ┆ 0.0         ┆ … ┆ 2.94        ┆ 23.94   ┆ 21.1     ┆ 40.0     │
+│ test_S3  ┆ India   ┆ 2405000 ┆ 13.33       ┆ … ┆ 2.51        ┆ 4.88    ┆ 27.9     ┆ 59.4     │
+│ test_S3  ┆ US      ┆ 1945701 ┆ 0.0         ┆ … ┆ 2.84        ┆ 6.39    ┆ 24.6     ┆ 38.8     │
+└──────────┴─────────┴─────────┴─────────────┴───┴─────────────┴─────────┴──────────┴──────────┘

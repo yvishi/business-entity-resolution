@@ -1,0 +1,61 @@
+## 1. state parse failures (non-empty address), train vs test
+  S1 train: 0 / 2,206,821 (0.000%) []
+  S1 test: 0 / 1,473,092 (0.000%) []
+  S2 train: 0 / 4,865,649 (0.000%) []
+  S2 test: 0 / 4,076,024 (0.000%) []
+  S3 train: 16 / 5,109,687 (0.000%) ['Indlustrial. Estate, Dowlaishwaram East Godavari, Ap', '40-5-19/12, Vijayawada Andhra Pradesh, Ap', '48-3-35/A, Near Rama Talkies Visakhapatnam-16., Ap']
+  S3 test: 17 / 4,236,144 (0.000%) ['G T Road, Guntur, Ap', 'No 8-47 Nagulapadu, Guntur, Ap', 'Trivedi Chambers, Mp']
+
+## 2. scripts / characters in test never seen in train
+  new chars (char, count in 1M-sample, codepoint): [('è', 33525, '0xe8'), ('°', 14096, '0xb0'), ('È', 8572, '0xc8'), ('Ç', 5353, '0xc7'), ('º', 4770, '0xba'), ('à', 4768, '0xe0'), ('’', 3445, '0x2019'), ('ô', 3244, '0xf4'), ('À', 2752, '0xc0'), ('ç', 2603, '0xe7'), ('ê', 2183, '0xea'), ('ë', 1554, '0xeb'), ('î', 1108, '0xee'), ('Ê', 596, '0xca'), ('Ô', 559, '0xd4'), ('û', 510, '0xfb'), ('ù', 397, '0xf9'), ('Ë', 357, '0xcb'), ('Î', 268, '0xce'), ('Û', 119, '0xdb'), ('ü', 62, '0xfc'), ('Ù', 56, '0xd9'), ('Œ', 44, '0x152'), ('Ü', 22, '0xdc'), ('ö', 4, '0xf6'), ('Ö', 3, '0xd6'), ('\x94', 2, '0x94'), ('\x92', 1, '0x92'), ('¢', 1, '0xa2'), ('$', 1, '0x24'), ('ÿ', 1, '0xff')]
+
+## 3. name-token novelty: share of normalised name tokens never seen in train, by country/source
+  S1 US: 0.260% OOV tokens
+  S1 India: 0.171% OOV tokens
+  S1 France: 36.558% OOV tokens
+  S2 US: 3.493% OOV tokens
+  S2 India: 2.244% OOV tokens
+  S2 France: 36.389% OOV tokens
+  S3 US: 3.371% OOV tokens
+  S3 India: 2.406% OOV tokens
+  S3 France: 35.654% OOV tokens
+
+## 4. France: legal form detection, core-name, address state-less, fillers
+  S1: legal detected 69.9% | empty addr 0.0% | house# found 99.6% | core==nm 26.6%
+     unrecognised last name tokens: [('sarl', 73480), ('sas', 52276), ('eurl', 16979), ('sa', 12753), ('sasu', 10721), ('sci', 8360), ('ei', 4182), ('club', 2619), ('jean', 1713), ('france', 1577), ('ecole', 1494), ('amicale', 1446), ('comite', 1399), ('sainte', 1304), ('sportive', 1155)]
+     address tokens (top 25): [('de', 99156), ('rue', 65860), ('la', 44525), ('france', 39488), ('hauts', 39251), ('nouvelle', 32899), ('aquitaine', 32881), ('loire', 28018), ('pays', 28013), ('bordeaux', 16831), ('nantes', 14413), ('lille', 13423), ('du', 13326), ('des', 12119), ('avenue', 12007), ('saint', 10111), ('tourcoing', 7077), ('dunkerque', 6906), ('roubaix', 6427), ('calais', 6109), ('nazaire', 5344), ('pessac', 4962), ('allee', 4680), ('buch', 4311), ('teste', 4310)]
+  S2: legal detected 60.4% | empty addr 3.1% | house# found 93.1% | core==nm 33.9%
+     unrecognised last name tokens: [('sarl', 117943), ('sas', 79135), ('eurl', 34060), ('sa', 28331), ('sasu', 25927), ('sci', 22904), ('france', 18690), ('groupe', 13065), ('fils', 12612), ('s', 12604), ('club', 12218), ('developpement', 11688), ('l', 10377), ('cie', 7452), ('ecole', 7433)]
+     address tokens (top 25): [('de', 54152), ('rue', 38255), ('r', 25551), ('la', 24950), ('loire', 17867), ('bordeaux', 16220), ('nantes', 13891), ('lille', 13166), ('du', 12855), ('france', 12851), ('hauts', 12632), ('des', 11599), ('nord', 10707), ('gironde', 10617), ('nouvelle', 10522), ('aquitaine', 10501), ('atlantique', 9038), ('pays', 8911), ('saint', 7948), ('calais', 7804), ('tourcoing', 6903), ('no', 6726), ('dunkerque', 6569), ('avenue', 6354), ('roubaix', 6302)]
+  S3: legal detected 59.4% | empty addr 2.9% | house# found 93.4% | core==nm 35.0%
+     unrecognised last name tokens: [('sarl', 121927), ('sas', 81901), ('eurl', 34682), ('sa', 29090), ('sasu', 26322), ('sci', 23291), ('france', 18948), ('groupe', 13025), ('fils', 12843), ('club', 12610), ('s', 12419), ('developpement', 11707), ('l', 10374), ('ecole', 7652), ('cie', 7556)]
+     address tokens (top 25): [('de', 55820), ('rue', 39538), ('la', 25834), ('r', 24382), ('loire', 18586), ('bordeaux', 16291), ('nantes', 14008), ('france', 13810), ('hauts', 13606), ('du', 13223), ('lille', 13063), ('des', 11638), ('nouvelle', 11151), ('aquitaine', 11139), ('gironde', 10531), ('nord', 10513), ('pays', 9865), ('atlantique', 8824), ('saint', 8012), ('calais', 7889), ('tourcoing', 6848), ('avenue', 6723), ('dunkerque', 6551), ('no', 6429), ('roubaix', 6230)]
+
+## 5. France partition size (single partition -> blocking cost)
+  S1 259452 pool 1434993
+  S1 last address part (region/dept/city) top: [('Hauts-de-France', 87960), ('Nouvelle-Aquitaine', 73819), ('Pays de la Loire', 62901), ('Bordeaux', 2870), ('Nantes', 2441), ('Lille', 2211), ('Tourcoing', 1221), ('Dunkerque', 1110)]
+  S2 last address part (region/dept/city) top: [('Hauts-de-France', 76368), ('Gironde', 65047), ('Nord', 64801), ('Nouvelle-Aquitaine', 64246), ('Loire-Atlantique', 54689), ('Pays de la Loire', 54500), ('BORDEAUX', 34618), ('NANTES', 30485)]
+  S3 last address part (region/dept/city) top: [('Hauts-de-France', 85734), ('Nouvelle-Aquitaine', 71925), ('Nord', 65648), ('Gironde', 65344), ('Pays de la Loire', 61870), ('Loire-Atlantique', 55324), ('Bordeaux', 38951), ('Nantes', 34117)]
+
+## 6. patterns frequent in test names/addresses but rare in train (per 100k records)
+shape: (14, 6)
+┌────────────────────┬──────────┬─────────────┬─────────┬────────────┬─────────────┐
+│ pattern            ┆ train_US ┆ train_India ┆ test_US ┆ test_India ┆ test_France │
+│ ---                ┆ ---      ┆ ---         ┆ ---     ┆ ---        ┆ ---         │
+│ str                ┆ f64      ┆ f64         ┆ f64     ┆ f64        ┆ f64         │
+╞════════════════════╪══════════╪═════════════╪═════════╪════════════╪═════════════╡
+│ N° prefix          ┆ 0.0      ┆ 0.0         ┆ 0.0     ┆ 0.0        ┆ 4.89        │
+│ bis/ter            ┆ 0.11     ┆ 0.0         ┆ 0.11    ┆ 0.0        ┆ 1.69        │
+│ (digits)           ┆ 0.0      ┆ 0.22        ┆ 0.0     ┆ 0.22       ┆ 1.62        │
+│ + in name          ┆ 0.7      ┆ 0.37        ┆ 0.67    ┆ 0.34       ┆ 0.56        │
+│ & in name          ┆ 4.67     ┆ 3.32        ┆ 4.74    ┆ 3.35       ┆ 5.79        │
+│ leading legal form ┆ 0.0      ┆ 0.01        ┆ 0.0     ┆ 0.01       ┆ 5.72        │
+│ Cie                ┆ 0.0      ┆ 0.0         ┆ 0.0     ┆ 0.0        ┆ 2.26        │
+│ (France)           ┆ 0.0      ┆ 0.0         ┆ 0.0     ┆ 0.0        ┆ 5.4         │
+│ apostrophe ’       ┆ 0.0      ┆ 0.0         ┆ 0.0     ┆ 0.0        ┆ 0.0         │
+│ zero-padded number ┆ 4.63     ┆ 3.54        ┆ 4.76    ┆ 3.6        ┆ 2.95        │
+│ domain             ┆ 3.39     ┆ 2.78        ┆ 2.8     ┆ 2.25       ┆ 2.69        │
+│ @handle            ┆ 0.37     ┆ 0.24        ┆ 0.3     ┆ 0.19       ┆ 0.27        │
+│ all caps address   ┆ 43.79    ┆ 11.67       ┆ 44.36   ┆ 11.78      ┆ 14.2        │
+│ comma-less address ┆ 0.0      ┆ 0.0         ┆ 0.0     ┆ 0.0        ┆ 0.02        │
+└────────────────────┴──────────┴─────────────┴─────────┴────────────┴─────────────┘

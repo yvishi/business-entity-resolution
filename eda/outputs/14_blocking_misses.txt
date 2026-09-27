@@ -1,0 +1,50 @@
+
+### US: true pairs 670,734; recall raw blocking 0.9908; after prune 0.9898
+  lost by blocking (6,156 pairs): addr:empty 75%, name:only_generic_added 32%, name:legal_removed 21%, addr:parts_reordered 19%, name:no_shared_token 13%, addr:state_spelled_out 12%, name:legal_added 12%, addr:upper 11%, name:upper 11%, name:only_generic_removed 10%, name:cosmetic_only 9%, addr:hn_same 9%, addr:hn_missing 8%, name:typo 7%
+     'West Centurion'                         | 'AR, Unit Apt 105, Springdale, 220 Strawberry Meadows Place'
+     -> 'West Cnetnnrn'                       | ''
+     'Surgical Trusted Center Inc'            | '55 Mcdowell Road, Washington, ME'
+     -> 'Surgical  Trusted'                   | '55 Mcdowell Road, ME, WASHINGTON'
+     'Owens & Cannon Inc.'                    | '1452 Ellsworth Road, Unit 1339, Mesa, AZ'
+     -> 'CALOBRIXZETA'                        | '1452. ELLSWORTH RD, MESA, AZ'
+     'Beacon Publishing'                      | '3199 Thompson Avenue, Kingman, AZ'
+     -> 'BEACON  SERVICES Enterprises'        | ''
+     'Greene Industries Care'                 | 'Tucson, 11550 Broadway Boulevard, AZ'
+     -> 'Gildsyn'                             | 'BROADWAY BLVD, TUSCON, AZ'
+     'Orthopedic Center of Mesa, Inc'         | '10745 Main Street, Unit 106, Mesa, AZ'
+     -> 'Orthopedic Center of Mah, Inc'       | ''
+     'Cardiology Care Associates Inc'         | '10815 Archery Road, Lawrenceville, IL'
+     -> 'Cardiology Care Associates'          | ''
+     'Vision Care of Phoenix'                 | '5122 Shea Boulevard, Unit 2010, Phoenix, AZ'
+     -> 'Vision Care'                         | '512 SHEA BLVD, SCOTTSDALE CITY, AZ'
+     'Great Hospitality LLC'                  | '2848 Riverview Drive, Norfork, AR'
+     -> 'GREAT HOTIAISTY [LLC]'               | ''
+     'Economic Development Ministries'        | '664 Praxis Lane, AR, Fayetteville'
+     -> 'Economic Development - 9113642280'   | ''
+  lost by prune (682 pairs): addr:parts_reordered 73%, name:no_shared_token 60%, addr:state_spelled_out 47%, addr:upper 46%, addr:hn_same 44%, name:legal_removed 41%, addr:hn_missing 25%, addr:fewer_parts 23%, addr:hn_other 22%, name:upper 14%, name:only_generic_added 9%, name:typo 9%, addr:more_parts 6%, name:leet_digit 5%
+  reference (all true) (20,000 pairs): addr:hn_same 71%, addr:parts_reordered 62%, addr:state_spelled_out 45%, addr:upper 44%, name:cosmetic_only 24%, name:legal_removed 23%, name:only_generic_added 19%, name:only_generic_removed 16%, name:upper 12%, name:legal_added 11%, name:lower 8%, addr:fewer_parts 8%, addr:hn_missing 7%, name:typo 7%
+
+### India: true pairs 580,293; recall raw blocking 0.9768; after prune 0.9704
+  lost by blocking (13,453 pairs): addr:fewer_parts 59%, addr:hn_same 51%, name:legal_removed 50%, addr:parts_reordered 40%, addr:empty 34%, name:indic_script 20%, name:only_generic_removed 19%, name:only_generic_added 18%, addr:indic_script 17%, name:no_shared_token 13%, name:typo 9%, addr:upper 8%, name:cosmetic_only 7%, name:legal_added 7%
+     'White Software Limited'                 | '25/33 3Rd Floor East Patel Nagar, New Delhi, West Delhi, Del'
+     -> 'WHITE (SOFTWARE-LIMITED)'            | ''
+     'Prudent Affiliate Pvt. Ltd.'            | 'Plot No-143, Khata No-15, Ramachandrapur Back Side Of Police'
+     -> 'Tavozeph'                            | 'PLOT NO-6-143, BHUBANESWAR, KHORDHA, Orissa'
+     'Om Ventures Private Limited'            | 'No.X 101, Siddhartha Apartment, Maharana Pratap Encalve, Pit'
+     -> 'ॐ वेंचर्स प्राइवेट लिमिटेड'          | '#993 NO.X 101, DELHI, NORTH WEST DELHI, Delhi'
+     'Kedarnath Recruitment Pvt Ltd'          | 'Plot No203 Madhyapada Rajnagar, Kendrapara, Orissa'
+     -> 'Kedarnath Rercuhtnment Pvt Ltd'      | ''
+     'New Delhi India Private Limited'        | 'B-267A, First Floor Greater Kailash Part-1, New Delhi, South'
+     -> 'Xyloveo'                             | 'B-67A, SOUTH DELHI, OKHLA, दिल्ली'
+     'Shiv Power Private Limited'             | 'Bhubaneswar, Orissa, Khordha, Shaeed Nagar 3Rd Floor, A-19'
+     -> 'ଶିବ ପାୱାର୍ ପ୍ରାଇଭେଟ୍ ଲିମିଟେଡ୍'       | 'BHUBANESWAR, Odisha, KHORDHA, A-0019'
+     'Green Care Pvt Ltd'                     | 'Block-H Laxmi Nagar, New Delhi, H.No-23, Delhi, East Delhi'
+     -> 'ग्रीन केयर प्रा. लि.'                | 'H.NO-B3/23, NEW DELHI, PAPRAWAT, Delhi'
+     'New Delhi Leasing LLP'                  | 'Uppal Plaza M-6 First Floor, Jasola District Centre, New Del'
+     -> 'New Délhi LLP Service'               | ''
+     'Big Construction Private Limited'       | '236, First Floor, Sant Nagar, Raja Dheer Sen Marg, East Of K'
+     -> 'Big कंस्ट्रक्शन प्राइवेट लिमिटेड'    | ''
+     'Jsp & Sons Private Limited'             | 'Delhi, Afnoe Plot 11 Sector-7, Dwarka, West Delhi, 618, Delh'
+     -> 'Zephectokelo'                        | 'NO. 414 618, DELHI, WEST DELHI, Delhi'
+  lost by prune (3,716 pairs): addr:fewer_parts 88%, addr:hn_same 76%, name:legal_removed 62%, addr:parts_reordered 59%, name:indic_script 39%, addr:indic_script 25%, name:only_generic_removed 15%, name:only_generic_added 12%, addr:upper 12%, name:no_shared_token 9%, name:cosmetic_only 8%, name:typo 6%, name:legal_added 6%, addr:hn_other 5%
+  reference (all true) (20,000 pairs): addr:hn_same 80%, addr:parts_reordered 51%, name:legal_removed 49%, addr:fewer_parts 46%, name:only_generic_removed 27%, addr:indic_script 23%, name:indic_script 18%, name:only_generic_added 17%, name:cosmetic_only 16%, addr:upper 12%, name:legal_added 12%, name:upper 9%, name:typo 6%, name:lower 6%

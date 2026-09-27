@@ -1,0 +1,121 @@
+US     VT       fix=False S1 sample=1,500 partition S1=2,576 pool=14,458 | pred>0.5 per S1: mean 3.33, zero 6.0% | obvious copies 3,606 (2.40/S1): in candidates 100.0%, scored>0.5 99.6%  [8s]
+India  Punjab   fix=False S1 sample=1,500 partition S1=11,704 pool=66,788 | pred>0.5 per S1: mean 3.33, zero 5.1% | obvious copies 2,768 (1.85/S1): in candidates 98.9%, scored>0.5 91.5%  [29s]
+France PDL      fix=False S1 sample=1,500 partition S1=72,734 pool=390,177 | pred>0.5 per S1: mean 3.39, zero 6.5% | obvious copies 6,683 (4.46/S1): in candidates 58.8%, scored>0.5 58.6%  [143s]
+
+### Predicted matches per S1 (stage-1 score), by country: generator truth ~3.46 per S1, 5.6% singletons
+  US     VT     : mean p>0.5 3.33 | p>0.8 3.28 | zero 6.0% | >=7 4.3% | uncertain(0.2-0.8)/S1 0.13 | hist {0: 90, 1: 119, 2: 277, 3: 342, 4: 320, 5: 180, 6: 107, 7: 43, 8: 22}
+  India  Punjab : mean p>0.5 3.33 | p>0.8 3.18 | zero 5.1% | >=7 3.0% | uncertain(0.2-0.8)/S1 0.35 | hist {0: 77, 1: 113, 2: 282, 3: 351, 4: 325, 5: 207, 6: 100, 7: 32, 8: 13}
+  France PDL    : mean p>0.5 3.39 | p>0.8 3.21 | zero 6.5% | >=7 4.5% | uncertain(0.2-0.8)/S1 0.47 | hist {0: 97, 1: 127, 2: 254, 3: 318, 4: 313, 5: 209, 6: 115, 7: 38, 8: 29}
+
+### France PDL: S1 with ZERO predicted matches (97) - top candidates and features
+
+  S1 'Fleur (France) Culturel SAS' | '35 Route des Aubinais, Saint-Nazaire, Pays de la Loire'
+     p=0.15 'Fleur (France) Çulturel SA'       | '56 Rte Des Aubinais, Saint-nazaire'                      c_na=0.93 c_nm=1.00 nm_ratio=97.96 core_tset=100.00 ad_tset=97.14 ad_tsort=97.14 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=0 r_rna=0
+     p=0.01 'GO Maison'                        | '35 B Route Des Aubinais, Saint-nazaire, Pays de la Loir' c_na=0.75 c_nm=None nm_ratio=17.65 core_tset=8.70 ad_tset=100.00 ad_tsort=97.22 hn_eq=1 st_eq=1 legal_eq=0 amb_core=1 r_fna=3 r_rna=99
+     p=0.01 'Fleur (France) Foyer'             | '56 Route Des Aubinais, Saint-nazaire'                    c_na=0.73 c_nm=None nm_ratio=65.12 core_tset=62.50 ad_tset=97.14 ad_tsort=97.14 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=5 r_rna=0
+     p=0.00 'Go Maison'                        | 'Pays de la Loire, 35 B RTE DES AUBINAIS, SAINT-NAZAIRE'  c_na=0.75 c_nm=None nm_ratio=17.65 core_tset=8.70 ad_tset=100.00 ad_tsort=97.22 hn_eq=1 st_eq=1 legal_eq=0 amb_core=1 r_fna=2 r_rna=99
+
+  S1 'Ensemble Centre SAS' | "9 Rue de l'Hippodrome, Nantes, Pays de la Loire"
+     p=0.07 'Ensemble Centre Groupe SAS'       | "14 R. DE L'HIPPODROME, NANTES, Pays de la Loire"         c_na=0.98 c_nm=1.00 nm_ratio=84.44 core_tset=100.00 ad_tset=96.30 ad_tsort=94.74 hn_eq=0 st_eq=1 legal_eq=1 amb_core=4 r_fna=0 r_rna=0
+     p=0.01 'SAS Ensemble Centre'              | '1 B Rue Mercoeur, Nantes'                                c_na=None c_nm=1.00 nm_ratio=78.95 core_tset=100.00 ad_tset=62.75 ad_tsort=62.75 hn_eq=0 st_eq=1 legal_eq=1 amb_core=4 r_fna=99 r_rna=99
+     p=0.00 'Nantes Élémentaire SAS'           | "10 R De L'hippodrome, Nantes, Pays de la Loire"          c_na=0.62 c_nm=None nm_ratio=68.29 core_tset=48.48 ad_tset=96.30 ad_tsort=94.74 hn_eq=0 st_eq=1 legal_eq=1 amb_core=4 r_fna=11 r_rna=99
+     p=0.00 'Ensemble Centre SA'               | '4 A R. Des Sept Maires Charette, Nantes'                 c_na=None c_nm=1.00 nm_ratio=97.30 core_tset=100.00 ad_tset=56.72 ad_tsort=53.73 hn_eq=0 st_eq=1 legal_eq=0 amb_core=4 r_fna=99 r_rna=99
+
+  S1 'EHPAD Notre' | '15 Avenue Gariguette, La Baule-Escoublac, Pays de la Loire'
+     p=0.35 'EHPAD [Notre]'                    | '26 Av. Des Ormes, La Baule-escoublac'                    c_na=0.79 c_nm=None nm_ratio=100.00 core_tset=100.00 ad_tset=79.37 ad_tsort=70.13 hn_eq=0 st_eq=1 legal_eq=1 amb_core=20 r_fna=8 r_rna=1
+     p=0.01 'EHPAD Notre [France]'             | '8 ALL DES PINGOUINS, LA BAULE-ESCOUBLAC, Loire-Atlantiq' c_na=0.77 c_nm=None nm_ratio=75.86 core_tset=100.00 ad_tset=68.35 ad_tsort=63.29 hn_eq=0 st_eq=1 legal_eq=1 amb_core=20 r_fna=10 r_rna=2
+     p=0.00 'Comite Notre'                     | '26 AVENUE GARIGUETTE, LA BAULE-ESCOUBLAC, Pays de la Lo' c_na=0.81 c_nm=None nm_ratio=60.87 core_tset=62.50 ad_tset=96.00 ad_tsort=94.87 hn_eq=0 st_eq=1 legal_eq=1 amb_core=20 r_fna=6 r_rna=1
+     p=0.00 'Ehpad Du Notre'                   | '29 Avenue De Bellevue, St.-herblain, Loire-Atlantique'   c_na=None c_nm=1.00 nm_ratio=88.00 core_tset=100.00 ad_tset=53.33 ad_tsort=53.33 hn_eq=0 st_eq=1 legal_eq=1 amb_core=20 r_fna=99 r_rna=99
+
+  S1 'Saint-Herblain Institut EURL' | 'Pays de la Loire, Saint-Herblain, 14 Avenue des Roitelets'
+     p=0.00 'Saint-Herblain Institut'          | '49 Rue De La Blanche, Saint-herblain'                    c_na=None c_nm=1.00 nm_ratio=90.20 core_tset=100.00 ad_tset=71.23 ad_tsort=71.23 hn_eq=0 st_eq=1 legal_eq=0 amb_core=12 r_fna=99 r_rna=99
+     p=0.00 'Saint-Herblain Institut'          | '76 R De La Gaer, Saint-herblain'                         c_na=None c_nm=1.00 nm_ratio=90.20 core_tset=100.00 ad_tset=62.86 ad_tsort=62.86 hn_eq=0 st_eq=1 legal_eq=0 amb_core=12 r_fna=99 r_rna=99
+     p=0.00 'Saint-Herblain  Institut-SARL'    | 'Nº 16 AVENUE COURTELINE, ST.-HERBLAIN, Loire-Atlantique' c_na=0.83 c_nm=None nm_ratio=92.86 core_tset=100.00 ad_tset=79.45 ad_tsort=68.49 hn_eq=0 st_eq=1 legal_eq=0 amb_core=12 r_fna=8 r_rna=99
+     p=0.00 'Saint-Herblain Institut International EURL' | 'N°23 AV DES ROITELETS, SAINT-HERBLAIN'                   c_na=0.87 c_nm=None nm_ratio=80.00 core_tset=100.00 ad_tset=95.89 ad_tsort=87.50 hn_eq=0 st_eq=1 legal_eq=1 amb_core=12 r_fna=0 r_rna=0
+
+  S1 'Admr Musique SARL' | '16 ALL Jean Philippe Rameau, Saint-Herblain, Pays de la Loire'
+     p=0.02 'ADMR MUSIQUE SCI'                 | '42 RUE DE LA PORCHELLERIE, SAINT-HERBLAIN'               c_na=0.64 c_nm=1.00 nm_ratio=84.85 core_tset=100.00 ad_tset=66.67 ad_tsort=66.67 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=16 r_rna=1
+     p=0.01 'EURL Admr Mùsique'                | '45 R. De La Porchellerie, Saint-Herblain'                c_na=0.64 c_nm=1.00 nm_ratio=70.59 core_tset=100.00 ad_tset=66.67 ad_tsort=66.67 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=17 r_rna=1
+     p=0.01 'Dame Lycée'                       | '12 Allée Jean Philippe Rameau, Saint-Herblain, Pays de ' c_na=None c_nm=None nm_ratio=37.04 core_tset=36.36 ad_tset=97.73 ad_tsort=97.73 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=99 r_rna=99
+     p=0.00 'Admr Groupement'                  | '29 All Jean Philippe Rameau, St.-herblain, Loire-Atlant' c_na=0.80 c_nm=None nm_ratio=43.75 core_tset=51.85 ad_tset=96.47 ad_tsort=95.45 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=1 r_rna=0
+
+  S1 'Cadets Fetes SASU' | '1 Rue de Bouillé, Nantes, Pays de la Loire'
+     p=0.14 'Cadets Fetes Holding'             | '22 RUE DE BOUELLE, NANTES, Loire-Atlantique'             c_na=0.76 c_nm=1.00 nm_ratio=70.27 core_tset=100.00 ad_tset=89.36 ad_tsort=89.36 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=1 r_rna=0
+     p=0.09 'Cadets Fetes France Sasu'         | '22 R. DE BOUILLÉ, NANTES, Loire-Atlantique'              c_na=0.96 c_nm=1.00 nm_ratio=82.93 core_tset=100.00 ad_tset=95.45 ad_tsort=93.62 hn_eq=0 st_eq=1 legal_eq=1 amb_core=1 r_fna=0 r_rna=0
+     p=0.00 'Detente Fetes Ei'                 | 'Rue De Coulmiers, Nantes'                                c_na=0.52 c_nm=0.72 nm_ratio=60.61 core_tset=72.00 ad_tset=78.26 ad_tsort=78.26 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=5 r_rna=99
+     p=0.00 '"Amicale ""Lieu De"'              | '14 Rue De Bouille, Nantes, Loire-Atlantique'             c_na=None c_nm=None nm_ratio=37.50 core_tset=41.67 ad_tset=97.87 ad_tsort=97.87 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=99 r_rna=99
+
+  S1 'TLM Soins SCI' | '41 Route de Marsac, Saint-Nazaire, Pays de la Loire'
+     p=0.00 'Table Soins SCI'                  | '11 ALLÉE MARSAIN, SAINT-NAZAIRE'                         c_na=0.65 c_nm=None nm_ratio=85.71 core_tset=80.00 ad_tset=74.19 ad_tsort=74.19 hn_eq=0 st_eq=1 legal_eq=1 amb_core=1 r_fna=9 r_rna=99
+     p=0.00 'tennisfetessasu.com'              | '1 Route De Marsac, Saint-nazaire, Loire-Atlantique'      c_na=None c_nm=None nm_ratio=28.57 core_tset=25.00 ad_tset=98.41 ad_tsort=98.41 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=99 r_rna=99
+     p=0.00 'TLM Soins SARL'                   | '42 ROUTE DE MARSAC, SAINT-NAZAIRE, Pays de la Loire'     c_na=0.93 c_nm=1.00 nm_ratio=81.48 core_tset=100.00 ad_tset=96.88 ad_tsort=96.88 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=0 r_rna=0
+     p=0.00 'SASU TENNIS FETES'                | '1 Route De Marsac, Saint-Nazaire, Loire-Atlantique'      c_na=None c_nm=None nm_ratio=33.33 core_tset=28.57 ad_tset=98.41 ad_tsort=98.41 hn_eq=0 st_eq=1 legal_eq=0 amb_core=1 r_fna=99 r_rna=99
+
+  S1 'Sports & Fils SAS' | '40 Avenue Anne de Bretagne, La Baule-Escoublac, Pays de la Loire'
+     p=0.02 'Sports & Fils Groupe'             | '44 AVENUE ANNE DE BRETAGNE, LA BAULE ESCOUBLAC'          c_na=0.94 c_nm=1.00 nm_ratio=72.73 core_tset=100.00 ad_tset=97.78 ad_tsort=97.78 hn_eq=0 st_eq=1 legal_eq=0 amb_core=15 r_fna=0 r_rna=0
+     p=0.02 'Sports SASU & Fils'               | '#132 Avenue Des Lilas, La Baule-escoublac, Loire-Atlant' c_na=None c_nm=1.00 nm_ratio=70.97 core_tset=100.00 ad_tset=78.12 ad_tsort=69.05 hn_eq=0 st_eq=1 legal_eq=0 amb_core=15 r_fna=99 r_rna=99
+     p=0.00 'Sa Sports & Fils'                 | 'Chemin De La Galetiere, Saint-Herblain'                  c_na=None c_nm=1.00 nm_ratio=75.86 core_tset=100.00 ad_tset=46.34 ad_tsort=43.90 hn_eq=0 st_eq=1 legal_eq=0 amb_core=15 r_fna=99 r_rna=99
+     p=0.00 'Sports & Fils  SA'                | 'Chemin De La Galetière, Saint-herblain'                  c_na=None c_nm=1.00 nm_ratio=96.55 core_tset=100.00 ad_tset=46.34 ad_tsort=43.90 hn_eq=0 st_eq=1 legal_eq=0 amb_core=15 r_fna=99 r_rna=99
+
+  S1 'Emmaus Ecole SAS' | '35 Rue de la Maison Blanche, Nantes, Pays de la Loire'
+     p=0.16 'emmaus ecole sas'                 | '16 - Rue Francois Evelin, Nantes, Loire-Atlantique'      c_na=0.63 c_nm=1.00 nm_ratio=100.00 core_tset=100.00 ad_tset=60.32 ad_tsort=60.32 hn_eq=0 st_eq=1 legal_eq=1 amb_core=3 r_fna=2 r_rna=1
+     p=0.15 'Emmaus Ècole SAS'                 | '16 - Rue Francois Evelin, Nantes, Loire-Atlantique'      c_na=0.63 c_nm=1.00 nm_ratio=100.00 core_tset=100.00 ad_tset=60.32 ad_tsort=60.32 hn_eq=0 st_eq=1 legal_eq=1 amb_core=3 r_fna=5 r_rna=1
+     p=0.14 'Nantes Ecole'                     | 'Rue De La Maison Blanche, Nantes, Pays de la Loire'      c_na=0.66 c_nm=None nm_ratio=57.14 core_tset=66.67 ad_tset=100.00 ad_tsort=95.38 hn_eq=0 st_eq=1 legal_eq=0 amb_core=3 r_fna=1 r_rna=99
+     p=0.14 'EMMAUS ECOLE SAS'                 | '16 RUE FRANCOIS EVELIN, NANTES, Pays de la Loire'        c_na=0.63 c_nm=1.00 nm_ratio=100.00 core_tset=100.00 ad_tset=60.32 ad_tsort=60.32 hn_eq=0 st_eq=1 legal_eq=1 amb_core=3 r_fna=3 r_rna=1
+
+  S1 'Deleves Amicale SA' | '3 Rue Alfred Riom, Nantes, Pays de la Loire'
+     p=0.23 'Deleves-Amicale France SA'        | '5 - Rue Alfred Riom, Nantes'                             c_na=0.97 c_nm=None nm_ratio=83.72 core_tset=100.00 ad_tset=95.83 ad_tsort=95.83 hn_eq=0 st_eq=1 legal_eq=1 amb_core=14 r_fna=0 r_rna=0
+     p=0.00 'Dêleves des Amicale'              | '11 Rue Du Ballet, Nantes, Pays de la Loire'              c_na=None c_nm=1.00 nm_ratio=81.08 core_tset=100.00 ad_tset=68.09 ad_tsort=68.09 hn_eq=0 st_eq=1 legal_eq=0 amb_core=14 r_fna=99 r_rna=99
+     p=0.00 'deleves amicale'                  | '63 Rte. Du Pré Hembert, Saint-nazaire, Loire-Atlantique' c_na=None c_nm=1.00 nm_ratio=90.91 core_tset=100.00 ad_tset=42.62 ad_tsort=42.62 hn_eq=0 st_eq=1 legal_eq=0 amb_core=14 r_fna=99 r_rna=99
+     p=0.00 'Deleves  Amicale (France) SAS'    | '8 Bis Rue Docteur Yvonne Pouzin-malègue, Nantes, Pays d' c_na=None c_nm=1.00 nm_ratio=81.82 core_tset=100.00 ad_tset=58.82 ad_tsort=48.57 hn_eq=0 st_eq=1 legal_eq=0 amb_core=14 r_fna=99 r_rna=99
+
+### France PDL: S1 with >=7 predicted matches (67)
+
+  S1 'Nantes Comite SARL' | '6 RUE des Roches Grises, Nantes, Pays de la Loire'
+     p=1.00 'Nantes Comite SARL'               | '6 R Des Roches Grises, Nantes'
+     p=1.00 'Nantes Comite SARL'               | '6 Rue Des Roches Grises, Nantes'
+     p=1.00 'Nantes SARL Comite'               | '6 R. DES ROCHES GRISES, NANTES, Pays de la Loire'
+     p=1.00 'Nantes SARL Comite'               | '6 RUE DES ROCHES GRISES, NANTES, Pays de la Loire'
+     p=1.00 'Nantes SARL Comite'               | '6 R Des Roches Grises, Nantes'
+     p=1.00 'Nantes Comite'                    | '6 Rue Des Roches Grises, Nantes'
+     p=0.99 'Nantes Compagnie SARL'            | '6 R Des Roches Grises, Nantes'
+     p=0.65 'ES SARL Cie'                      | '3 B R. DES ROCHES GRISES, NANTES, Loire-Atlantique'
+
+  S1 'Regionale Compagnie EURL' | '8 Rue Raspail, Nantes, Pays de la Loire'
+     p=1.00 'Compagnie Regionale EURL'         | '8 Rue Raspail, Nantes'
+     p=1.00 'EURL Regionale Compagnie'         | '8 R. Raspail, Nantes'
+     p=1.00 'EURL Regionale Çompagnie'         | '8 RUE RASPAIL, Nantes, Loire-Atlantique'
+     p=1.00 'REGIONALE COMPAGNIE E.U.R.L.'     | '8 R RASPAIL, NANTES, Loire-Atlantique'
+     p=1.00 'Regionale Compagnie E.U.R.L.'     | '8 Rue Raspail, Nantes'
+     p=0.99 'E.U.R.L. Regionale Compagnie'     | '8 RUE RASPAIL, Nantes, Loire-Atlantique'
+     p=0.76 'Regionale Comite (E.U.R.L.)'      | 'Nantes, 8 Rue Raspail'
+
+  S1 'JX Foyer SASU' | 'La Baule-Escoublac, Pays de la Loire, 24 Avenue des Régales'
+     p=1.00 'JX Fôyer SASU'                    | 'La Baule-escoublac, 24 Avenue Des Régales'
+     p=1.00 'JX Fôyer SASU'                    | '24 Avenue Des Regales, La Baule-escoublac'
+     p=1.00 'JX FOYER'                         | 'NO. 24 AVENUE DES RÉGALES, LA BAULE-ESCOUBLAC, Loire-Atlanti'
+     p=1.00 'JX Foyer'                         | '24 Avenue Des Régales, La Baule-escoublac'
+     p=1.00 'JX Foyer [SASU]'                  | 'NO. 24 AV DES RÉGAEES, LA BAULE-ESCOUBLAC, Loire-Atlantique'
+     p=1.00 'JX FOYER SASU'                    | '24 Avneue Des Régales, La Baule-escoublac'
+     p=0.99 'JF'                               | 'La Baule-Escoublac, Loire-Atlantique, NO. 24 AVENUE DES REGA'
+     p=0.98 'JX Ecole SASU'                    | 'LA BAULE-ESCOUBLAC, Loire-Atlantique, NO. 24 AV DES RÉGALES'
+
+  S1 'Pension Compagnie (France) SARL' | 'Pays de la Loire, 11 Rue Marcelin Berthelot, Saint-Nazaire'
+     p=1.00 'Pension Compagnie (Frànce) SARL'  | '11 RUE MARCELIN BERTHELOT, SAINT-NAZAIRE, Pays de la Loire'
+     p=1.00 'Pension Compagnie (France)-Sarl'  | '11 Rue Marcelin Berthelot, St.-nazaire, Pays de la Loire'
+     p=1.00 'Pension Compagnie (France) SARL'  | '11 R. MARCELIN BERTHELOT, SAINT-NAZAIRE, Pays de la Loire'
+     p=1.00 'PENSION ÇOMPAGNIE (FRANCE) SARL'  | 'SAINT-NAZAIRE, 11 R. MARCELIN BERTHELOT, Pays de la Loire'
+     p=1.00 'Pension Cbmepageie (France) SARL' | '11 Rue Marcelin Berthelot, St.-nazaire, Pays de la Loire'
+     p=1.00 'Pension Compagnie  (France)'      | '11 R MARCELIN BEROHELOT, SAINT-NAZAIRE, Pays de la Loire'
+     p=1.00 'PENSION COMPAGNIE (FRNRCE) SARL'  | '11 R. MARCELIN BERTHELOT, ST.-NAZAIRE, Pays de la Loire'
+     p=1.00 'Pension Compagnie (France)-S.A.R.L.' | '11 R. Marcelin Berthelot, St-nazaire, Pays de la Loire'
+
+  S1 'UG Culture SARL' | '42 RUE Pierre Dupont, Nantes, Pays de la Loire'
+     p=1.00 'UG ÇULTURE SARL'                  | '42 RUE PIERRE DUPONT, NANTES, Pays de la Loire'
+     p=1.00 'UG Çulture SARL'                  | '42 RUE PIERRE DUPONT, NANTES, Pays de la Loire'
+     p=1.00 'UG ÇULTURE SARL'                  | '42 RUE PIERRE DUPONT, NANTES, Pays de la Loire'
+     p=1.00 'UG Culture-Sarl'                  | '42 R Pierre Dupont, Nantes'
+     p=1.00 'UG  Culture'                      | '42 Rue Pierre Dupont, Nantes'
+     p=1.00 'UG Culture'                       | '42 Rue Piere Dupont, Nantes'
+     p=0.97 'UC'                               | '42 R. Pierre Dupont, Nantes'
+     p=0.71 'UG College'                       | '42 RUE PIERRE DUPONT, NANTES, Pays de la Loire'

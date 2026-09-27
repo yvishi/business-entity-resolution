@@ -1,0 +1,164 @@
+stage 2, decision ('expf', 0.6, 'uniq'); S1=61,504; pairs=4,400,350
+
+### OOF macro F0.5 = 0.9755   (per country: US 0.9781, India 0.9720)
+
+### Loss attribution: F0.5 regained if a bucket were fixed perfectly (overall / US / India)
+  blocking misses (true target not in candidates)              +0.0022  ( 8.8% of deficit)  [US +0.0015, India +0.0030]
+  model misses (candidate, not predicted)                      +0.0146  (59.3% of deficit)  [US +0.0138, India +0.0155]
+  false positives: distractor records (belong to no S1)        +0.0065  (26.3% of deficit)  [US +0.0049, India +0.0085]
+  false positives: records of ANOTHER S1's cluster             +0.0016  ( 6.7% of deficit)  [US +0.0018, India +0.0015]
+  singleton S1: 3,470 (5.64%); wrongly non-empty: 143; non-singletons predicted empty: 275
+
+### Operator profile per bucket (% of pairs in the bucket); 'all true pairs' = reference
+shape: (42, 8)
+┌───────────────────────────────┬────────────────┬───────┬─────────┬──────────┬──────────┬───────────┬─────────┐
+│ operator                      ┆ all true pairs ┆ block ┆ modelFN ┆ FP_distr ┆ FP_other ┆ block-ref ┆ mFN-ref │
+│ ---                           ┆ ---            ┆ ---   ┆ ---     ┆ ---      ┆ ---      ┆ ---       ┆ ---     │
+│ str                           ┆ f64            ┆ f64   ┆ f64     ┆ f64      ┆ f64      ┆ f64       ┆ f64     │
+╞═══════════════════════════════╪════════════════╪═══════╪═════════╪══════════╪══════════╪═══════════╪═════════╡
+│ addr:empty                    ┆ 9.7            ┆ 36.7  ┆ 52.4    ┆ 1.7      ┆ 59.6     ┆ 27.0      ┆ 42.7    │
+│ addr:fewer_parts              ┆ 22.3           ┆ 43.3  ┆ 15.4    ┆ 34.6     ┆ 11.8     ┆ 21.0      ┆ -6.9    │
+│ country:India                 ┆ 44.5           ┆ 62.4  ┆ 45.5    ┆ 58.0     ┆ 43.5     ┆ 17.9      ┆ 1.0     │
+│ name:no_shared_token          ┆ 3.2            ┆ 20.4  ┆ 7.2     ┆ 5.4      ┆ 32.6     ┆ 17.2      ┆ 4.0     │
+│ src:S3                        ┆ 51.5           ┆ 56.9  ┆ 51.9    ┆ 50.6     ┆ 58.4     ┆ 5.4       ┆ 0.4     │
+│ name:only_generic_added       ┆ 19.2           ┆ 22.1  ┆ 29.8    ┆ 31.5     ┆ 12.9     ┆ 2.9       ┆ 10.6    │
+│ name:typo                     ┆ 7.5            ┆ 9.0   ┆ 11.2    ┆ 18.7     ┆ 5.9      ┆ 1.5       ┆ 3.7     │
+│ addr:hn_missing               ┆ 4.2            ┆ 5.5   ┆ 2.6     ┆ 1.1      ┆ 5.9      ┆ 1.3       ┆ -1.6    │
+│ addr:indic_script             ┆ 8.8            ┆ 10.1  ┆ 5.2     ┆ 12.8     ┆ 3.4      ┆ 1.3       ┆ -3.6    │
+│ name:legal_removed            ┆ 34.4           ┆ 35.6  ┆ 33.4    ┆ 33.9     ┆ 41.0     ┆ 1.2       ┆ -1.0    │
+│ name:indic_script             ┆ 7.5            ┆ 8.7   ┆ 1.7     ┆ 2.5      ┆ 0.8      ┆ 1.2       ┆ -5.8    │
+│ name:leet_digit               ┆ 3.4            ┆ 4.2   ┆ 6.1     ┆ 1.9      ┆ 1.1      ┆ 0.8       ┆ 2.7     │
+│ name:domain                   ┆ 4.9            ┆ 5.6   ┆ 1.9     ┆ 0.7      ┆ 4.2      ┆ 0.7       ┆ -3.0    │
+│ addr:hn_leading_digit_dropped ┆ 1.9            ┆ 2.5   ┆ 2.0     ┆ 1.2      ┆ 0.0      ┆ 0.6       ┆ 0.1     │
+│ addr:hn_other                 ┆ 5.1            ┆ 5.6   ┆ 12.2    ┆ 17.0     ┆ 3.7      ┆ 0.5       ┆ 7.1     │
+│ addr:no_shared_token          ┆ 0.0            ┆ 0.2   ┆ 0.1     ┆ 0.3      ┆ 0.0      ┆ 0.2       ┆ 0.1     │
+│ addr:hn_extended              ┆ 0.1            ┆ 0.3   ┆ 0.2     ┆ 1.1      ┆ 0.3      ┆ 0.2       ┆ 0.1     │
+│ addr:hn_one_digit_changed     ┆ 1.8            ┆ 2.0   ┆ 6.6     ┆ 8.5      ┆ 1.1      ┆ 0.2       ┆ 4.8     │
+│ name:handle                   ┆ 0.3            ┆ 0.3   ┆ 0.1     ┆ 0.0      ┆ 0.0      ┆ 0.0       ┆ -0.2    │
+│ addr:vowel_dropped_abbrev     ┆ 0.3            ┆ 0.0   ┆ 0.2     ┆ 0.2      ┆ 0.0      ┆ -0.3      ┆ -0.1    │
+│ addr:na_token                 ┆ 0.8            ┆ 0.5   ┆ 0.5     ┆ 0.6      ┆ 0.6      ┆ -0.3      ┆ -0.3    │
+│ name:junk_prefix              ┆ 2.1            ┆ 1.6   ┆ 1.0     ┆ 1.3      ┆ 0.3      ┆ -0.5      ┆ -1.1    │
+│ name:square_brackets          ┆ 3.0            ┆ 2.5   ┆ 3.2     ┆ 2.7      ┆ 2.2      ┆ -0.5      ┆ 0.2     │
+│ name:parentheses_added        ┆ 3.4            ┆ 2.5   ┆ 4.3     ┆ 3.4      ┆ 3.4      ┆ -0.9      ┆ 0.9     │
+│ addr:hn_zero_padded           ┆ 2.8            ┆ 1.8   ┆ 0.5     ┆ 1.6      ┆ 1.7      ┆ -1.0      ┆ -2.3    │
+│ name:lower                    ┆ 6.8            ┆ 5.6   ┆ 2.5     ┆ 8.0      ┆ 6.7      ┆ -1.2      ┆ -4.3    │
+│ addr:parts_rotated_only       ┆ 3.4            ┆ 1.4   ┆ 1.1     ┆ 0.9      ┆ 1.4      ┆ -2.0      ┆ -2.3    │
+│ addr:exact                    ┆ 2.2            ┆ 0.0   ┆ 0.6     ┆ 0.0      ┆ 5.1      ┆ -2.2      ┆ -1.6    │
+│ name:accent_added             ┆ 6.5            ┆ 3.2   ┆ 5.6     ┆ 6.0      ┆ 5.9      ┆ -3.3      ┆ -0.9    │
+│ name:exact                    ┆ 4.1            ┆ 0.8   ┆ 2.2     ┆ 1.2      ┆ 2.2      ┆ -3.3      ┆ -1.9    │
+│ name:upper                    ┆ 11.4           ┆ 7.9   ┆ 10.6    ┆ 9.5      ┆ 12.4     ┆ -3.5      ┆ -0.8    │
+│ addr:more_parts               ┆ 5.2            ┆ 1.5   ┆ 4.0     ┆ 5.9      ┆ 3.1      ┆ -3.7      ┆ -1.2    │
+│ name:token_shuffle            ┆ 6.3            ┆ 1.0   ┆ 3.5     ┆ 0.7      ┆ 5.1      ┆ -5.3      ┆ -2.8    │
+│ src:S2                        ┆ 48.5           ┆ 43.1  ┆ 48.1    ┆ 49.4     ┆ 41.6     ┆ -5.4      ┆ -0.4    │
+│ name:legal_added              ┆ 12.0           ┆ 3.9   ┆ 18.5    ┆ 33.8     ┆ 5.9      ┆ -8.1      ┆ 6.5     │
+│ addr:parts_reordered          ┆ 53.4           ┆ 40.7  ┆ 37.4    ┆ 81.3     ┆ 25.0     ┆ -12.7     ┆ -16.0   │
+│ name:only_generic_removed     ┆ 21.7           ┆ 8.3   ┆ 24.8    ┆ 26.5     ┆ 17.1     ┆ -13.4     ┆ 3.1     │
+│ addr:upper                    ┆ 26.8           ┆ 11.8  ┆ 13.3    ┆ 25.8     ┆ 11.8     ┆ -15.0     ┆ -13.5   │
+│ name:cosmetic_only            ┆ 19.6           ┆ 4.2   ┆ 11.7    ┆ 4.1      ┆ 11.0     ┆ -15.4     ┆ -7.9    │
+│ addr:state_spelled_out        ┆ 23.0           ┆ 5.1   ┆ 10.0    ┆ 19.0     ┆ 8.1      ┆ -17.9     ┆ -13.0   │
+│ country:US                    ┆ 55.5           ┆ 37.6  ┆ 54.5    ┆ 42.0     ┆ 56.5     ┆ -17.9     ┆ -1.0    │
+│ addr:hn_same                  ┆ 62.7           ┆ 42.0  ┆ 14.6    ┆ 43.4     ┆ 19.7     ┆ -20.7     ┆ -48.1   │
+└───────────────────────────────┴────────────────┴───────┴─────────┴──────────┴──────────┴───────────┴─────────┘
+{'block': 1296, 'modelFN': 9428, 'FP_distr': 1394, 'FP_other': 356}
+
+### Examples
+
+-- block --
+  S1 'Ahura Trading Private Limited'               | 'C/O- Kamlakant Samdarshi, Bihar, Nalanda, Giriak, S/O-Brahamdeo Sinha,'
+     S3 'Ahuratrading.Com'                            | 'C/o- Kamlakant Samdarshi, S/o-brahamdeo Sinha, Puri, Giriak, Nalanda, '
+  S1 'Behavioral Health Associates'                | 'Caribou, ME, 394 Presque Isle Road'
+     S3 'Behavioral Héalth Associates Inc.'           | ''
+  S1 'Willow Group'                                | '506 Park Street, Creston, IA'
+     S2 'WILLOW GROUP'                                | 'PARK ST, DOUGLAS, IA'
+  S1 'Gb Construction Private Limited'             | 'Bhubaneswar, At: M-5/16, Khordha, Orissa, Acharya Vihar'
+     S3 '6b Construction-Private'                     | 'At: M-5/16, Bhubaneswar, Madhusudan Nagar, ଓଡ଼ିଶା'
+  S1 'Innovative Future Food Limited'              | 'Flat No.1145, Tower Flora, 13Th Floor, D.N. Oxypark, Dumuduma, Khandag'
+     S3 'Innovative Fashtrue Food Limited'            | 'Door No 1145, Khordha, Bhubaneswar, OD'
+  S1 'Womens Health Care'                          | '244 Vine Street, Derby, IA'
+     S3 'Womens Health Care Corporation'              | ''
+  S1 'Dunham & Judd Care'                          | 'IA, Hawarden, 919 15th Street'
+     S2 'BRIXCIRASYN'                                 | 'FIFTEENTH STREET, HAWARDEN, IA'
+  S1 'Real Infra Pvt Ltd'                          | 'Orissa, Khordha, (Ground Floor), Unit-9 Flat Bayababa Matha Lane, Bhub'
+     S3 'Smt Real Pvt Ltd-Service'                    | ''
+  S1 'Heritage Printing Networks P.C.'             | '4602 153rd Street, Urbandale, IA'
+     S2 'Heritage Printing'                           | ''
+  S1 'Caus Blue Independence Inc'                  | '5 Saco Street, Scarborough, ME'
+     S2 'GILDVERAZETA'                                | '005 SACO ST, WESTBROOK, ME'
+  S1 'Oncology Care, LLC'                          | '59 Ocean Point Road, Unit Unit 21, Boothbay Harbor, ME'
+     S2 'Oncology Care,  LLC'                         | ''
+  S1 'Balaji Software Private Limited'             | '1St Floor, Shop No-103/104, Utkal Centre Point, Chorada Bypass Square,'
+     S2 'Ariasyn - 1760647169'                        | 'JAJPUR, Odisha, #1ST FLOOR, JAJPUR'
+
+-- modelFN --
+  S1 'Mount Catholic Church'                       | '1939 Berwick Road, Wells, ME'
+     S3 'Mount Catholic Church Ltd'                   | '001749 Berwick Road, Wells, Maine'
+  S1 'St. Catholic Church'                         | '218 S Rolff St, Davenport, IA'
+     S2 'St. Catholic  Church'                        | ''
+  S1 'Hitech Brothers Private Limited'             | 'Plot No. 1705, Sector 82, Sas Nagar, Mohali, Ropar, Rupnagar, Punjab'
+     S3 'Dr Hitech Brothers Private'                  | ''
+  S1 'Russel Audio Private Limited'                | 'B-31-1147/5A, Plot No 15, G K Estate, Street No 01, Ludhiana, Punjab'
+     S3 'Russel Private Limited Center'               | 'B-31-1147/5a, Ludhiana, Sahnewal, PB'
+  S1 'Charity Woods Pizza PC'                      | '69302 740th Street, Massena, IA'
+     S3 'Charity Woods PC Service'                    | ''
+  S1 'First Investment Private Limited'            | 'Plot No-1845/3817, Brahmeswar Lane, Bhubaneswar, Khordha, Orissa'
+     S3 'First Investment Private'                    | 'Plot No-7845/3817, Bhubaneswar, Khordha, OD'
+  S1 'Rajshree & Sons Private Limited'             | 'Plot No- 4249, Pandav Nagar, Lane-Iii Tankapani Road, Baragarh, Bhuban'
+     S3 'Rajshree & Sions Private Limited'            | 'Khordha, Orissa, Plot No- 5249'
+  S1 'Al Maa Tech'                                 | '2323, C - Block Ranjit Avenue, Amritsar, Punjab'
+     S3 'Al Maa  Tech Corporation'                    | 'PB, Amritsar, 232, Amritsar'
+  S1 'Bhubaneswar Vihar Private Limited'           | 'Duplex-6, Ph-Ii, Shrabani Enclave, Kapila, Bhubaneswar, Khordha, Oriss'
+     S3 'Bhubaneswar Vihar Limited Center'            | ''
+  S1 'Kalahandi Labs'                              | 'Plot No-1029 Ladugaon, Koksara, Kalahandi, Orissa'
+     S2 'Kalahandi Labs C0rporation'                  | ''
+  S1 'Grand Premier Security'                      | '1153 Hawthorne Drive, Grimes, IA'
+     S2 'GRAND PREMIER SECURITY [CO]'                 | '1151 HAWTHORNE DRIVE, GRIMES, IA'
+  S1 'Bhubaneswar Pipes Private Limited'           | 'At-Block-2, 2Nd Floor Ochc Complex, Janpath, Khordha, Bhubaneswar, Ori'
+     S2 'Bhubaneswar Pipes Private  Limited'          | ''
+
+-- FP_distr --
+  S1 'Bhupendra Brothers Pvt Ltd'                  | 'N-1/256, Irc Village Nayapalli, Bhubaneswar, Khordha, Orissa'
+     S3 'Bhupendra Brothers Group Pvt Limited'        | 'N-1/25, Irc Village Nayapalli, Khordha, Bhubaneswar, OD'
+  S1 'Roopva Business LLP'                         | 'K 6 A, L 88, Shop No 2, Kalinga Vihar, Bhubaneswar, Khordha, Orissa'
+     S2 'Roopvi Business L.L.P.'                      | 'K 6 A, L 88, SHOP NO 2, KALINGA VIHAR, BHUBANESWAR, Odisha'
+  S1 'Consultancy Antech India Limited'            | 'Manoranjan Padhi, 480/1931, Khata No-410/160, Baleshwar Sadar, Balasor'
+     S3 'LLP Consultancy Antech India'                | 'No 95 Manoranjan Padhi, Baleshwar Sadar, Balasore, OD'
+  S1 'Riva LLC'                                    | '611 Fawn Ave, Tiffin, IA'
+     S2 'Berg Aria Aria of Tiffin Lakeside'           | '##611 FAWN AVE, TIFFIN, IA'
+  S1 'Eastern & Co'                                | 'C/O- Mr. Kailash Chandra Maharana Old Bus Stand, R.C. Church Road, Ber'
+     S3 'Group & Co Eanten'                           | '82 C/o- Mr. Kailash Chandra Maharana Old Bus Stand, R.c. Church Road, '
+  S1 'East Construction Pvt Ltd'                   | 'Plot No-437/1893, Khata No-474/1147, 7Th Floor, Half Back Side, Z Towe'
+     S3 'L.L.P. East Construction'                    | 'Plot No-437/1896, Khata No-474/1147, 7Th Floor, Half Back Side, Z Towe'
+  S1 'Uday Gee Limited'                            | 'Plot No:240/240 Nijigarh, Kurki, Harirajpur, Puri, Orissa'
+     S3 'The Uday Services Limited'                   | 'Plot No:240/242 Nijigarh, Khurda, OD'
+  S1 'American Holdings Group LP'                  | '7 Lightbody Lane, Kennebunk, ME'
+     S3 'American Group Holdings Inc'                 | '8. Lightbody Ln, Kennebunk, Maine'
+  S1 'Clear Broadcast Corporation'                 | '549 Reach Road, Deer Isle, ME'
+     S2 'Clear Broadcast Corporation Inc'             | '554 REACH ROAD, DEER ISLE, ME'
+  S1 'Innovative Consulting Limited'               | 'Orissa, Jharsuguda, House Name J.N. Patel, Near Mamta Marble Bijju Nag'
+     S2 'The Innovative Consulting LLP'               | 'NO 17 HOUSE NAME J.N. PATEL, NEAR MAMTA MARBLE BIJJU NAGAR, JHARSUGUDA'
+  S1 'Ramos, Kobel & Yen Inc'                      | '450 7th Street, Unit Unit G17, Des Moines, IA'
+     S2 'ramos, kobel & yen co'                       | '452 7TH ST, DE MOINES, IA'
+  S1 'FM Ifsc Limited'                             | 'Ground Floor, Office No. 3, Hotel Shyam, Rourkela, Raurkela (M), Sunda'
+     S2 'FM IFSC [L.L.P.]'                            | '#21 GROUND FLOOR, OFFICE NO. 3, HOTEL SHYAM, ROURKELA, RAURKELA (M), O'
+
+-- FP_other --
+  S1 'Signature Future'                            | '819 Lincoln Way, Unit 7, Ames, IA'
+     S2 'ORBIBELOHALO'                                | '819 LNCOLN WAY, AES, IA'   [true owner of target: "Bledsoe's Staffing"]
+  S1 'Sullivan Prairie Charles LLC'                | '3620 Edgewood Rd SW, Unit 800, Cedar Rapids, IA'
+     S2 'Sullivan Charles-LLC Center'                 | ''   [true owner of target: '?']
+  S1 'Apt & Co'                                    | 'Shop No. 1, Anaj Mandi Road, Kharar, Rupnagar, Punjab'
+     S3 'Apt-& Co'                                    | 'No 01St Floor, S.a.s.nagar (Mohali), Rupnagar, PB'   [true owner of target: 'Apt & Co']
+  S1 'PZ Services Pvt. Ltd.'                       | 'Khordha, Orissa, Plot No-N5/278, Bhubaneswar, Irc Village, Nayapalli'
+     S2 'PZ Servlics Pvt. Ltd.'                       | ''   [true owner of target: '?']
+  S1 'Shivshakti Infra Private Limited'            | 'R/O Mr. Rajendra Mallik, S/O Sundhu Mallik Plot No. 1918, Benipur Maha'
+     S3 'Shivshakti Infra Private Limited'            | ''   [true owner of target: '?']
+  S1 'Timber Supply Clinic'                        | '11 Mud Pond Drive, Harmony, ME'
+     S3 'Timber Supply'                               | ''   [true owner of target: '?']
+  S1 'Motes & Dukes Land'                          | '1633 Davidson Avenue, Clemons, IA'
+     S3 'Onyxpyra'                                    | '1633 Davidson Ave, Clemons, Iowa'   [true owner of target: 'Clear Highland Iheartmedia Inc']
+  S1 'Chambers Technology P.C.'                    | '45 Lake Avenue, ME, Old Orchard Beach'
+     S3 'Wexnyla'                                     | '45 Old Orchard Ave, NULL, Old Orchard Beach, Maine'   [true owner of target: 'Dawson Premier Diversified, Inc']
+  S1 'Dangelo Ace Acadia'                          | '3 Foggs Way, Unit UNIT B, North Yarmouth, ME'
+     S3 'IGC'                                         | '3 Foggs Way, Unit UNIT B, Nyarmouth, Maine'   [true owner of target: 'Interstate Green Canada, Inc']
+  S1 '96 Main Apartments Inc.'                     | '20800 Utica Ridge Rd, Davenport, IA'
+     S3 'Drexxylogild'                                | 'Utica Ridge Rd, Davenport, Iowa'   [true owner of target: 'Clear Super Inc']

@@ -1,0 +1,150 @@
+pairs sampled: {'S2-India': 77538, 'S2-US': 116088, 'S3-India': 82641, 'S3-US': 123733}
+shape: (39, 6)
+┌───────┬──────────────────────────┬──────────┬───────┬──────────┬───────┐
+│ field ┆ op                       ┆ S2-India ┆ S2-US ┆ S3-India ┆ S3-US │
+│ ---   ┆ ---                      ┆ ---      ┆ ---   ┆ ---      ┆ ---   │
+│ str   ┆ str                      ┆ f64      ┆ f64   ┆ f64      ┆ f64   │
+╞═══════╪══════════════════════════╪══════════╪═══════╪══════════╪═══════╡
+│ addr  ┆ empty                    ┆ 3.84     ┆ 4.89  ┆ 4.18     ┆ 4.47  │
+│ addr  ┆ exact                    ┆ 0.0      ┆ 0.0   ┆ 4.12     ┆ 4.43  │
+│ addr  ┆ fewer_parts              ┆ 51.86    ┆ 13.99 ┆ 35.63    ┆ 1.98  │
+│ addr  ┆ hn_extended              ┆ 0.23     ┆ 0.22  ┆ 0.37     ┆ 0.07  │
+│ addr  ┆ hn_leading_digit_dropped ┆ 2.02     ┆ 2.23  ┆ 1.89     ┆ 2.11  │
+│ addr  ┆ hn_missing               ┆ 0.83     ┆ 8.24  ┆ 2.02     ┆ 6.74  │
+│ addr  ┆ hn_one_digit_changed     ┆ 1.66     ┆ 1.65  ┆ 1.66     ┆ 1.49  │
+│ addr  ┆ hn_other                 ┆ 1.7      ┆ 6.16  ┆ 2.23     ┆ 5.77  │
+│ addr  ┆ hn_same                  ┆ 78.6     ┆ 72.38 ┆ 72.9     ┆ 70.99 │
+│ addr  ┆ hn_zero_padded           ┆ 2.78     ┆ 4.24  ┆ 2.53     ┆ 3.94  │
+│ addr  ┆ indic_script             ┆ 23.17    ┆ 0.0   ┆ 21.76    ┆ 0.0   │
+│ addr  ┆ landmark_added           ┆ 0.0      ┆ 0.0   ┆ 0.01     ┆ 0.0   │
+│ addr  ┆ more_parts               ┆ 3.13     ┆ 5.93  ┆ 6.99     ┆ 5.58  │
+│ addr  ┆ na_token                 ┆ 0.67     ┆ 0.92  ┆ 0.67     ┆ 0.89  │
+│ addr  ┆ no_shared_token          ┆ 0.0      ┆ 0.0   ┆ 0.01     ┆ 0.03  │
+│ addr  ┆ parts_reordered          ┆ 49.22    ┆ 66.77 ┆ 51.78    ┆ 55.32 │
+│ addr  ┆ parts_rotated_only       ┆ 6.23     ┆ 5.81  ┆ 2.35     ┆ 1.99  │
+│ addr  ┆ state_spelled_out        ┆ 0.0      ┆ 0.1   ┆ 0.0      ┆ 85.85 │
+│ addr  ┆ upper                    ┆ 23.38    ┆ 88.51 ┆ 0.04     ┆ 0.0   │
+│ addr  ┆ vowel_dropped_abbrev     ┆ 0.03     ┆ 0.6   ┆ 0.02     ┆ 0.57  │
+│ name  ┆ accent_added             ┆ 5.01     ┆ 7.43  ┆ 5.89     ┆ 7.43  │
+│ name  ┆ cosmetic_only            ┆ 14.77    ┆ 24.41 ┆ 17.18    ┆ 24.51 │
+│ name  ┆ domain                   ┆ 4.34     ┆ 5.66  ┆ 4.68     ┆ 5.41  │
+│ name  ┆ exact                    ┆ 2.63     ┆ 6.21  ┆ 2.71     ┆ 5.9   │
+│ name  ┆ handle                   ┆ 0.29     ┆ 0.5   ┆ 0.32     ┆ 0.45  │
+│ name  ┆ indic_script             ┆ 23.48    ┆ 0.0   ┆ 13.03    ┆ 0.0   │
+│ name  ┆ junk_prefix              ┆ 1.83     ┆ 2.67  ┆ 1.91     ┆ 2.52  │
+│ name  ┆ leet_digit               ┆ 2.5      ┆ 3.42  ┆ 2.69     ┆ 3.26  │
+│ name  ┆ legal_added              ┆ 12.26    ┆ 12.85 ┆ 11.09    ┆ 10.23 │
+│ name  ┆ legal_removed            ┆ 51.8     ┆ 23.63 ┆ 44.96    ┆ 21.19 │
+│ name  ┆ lower                    ┆ 5.21     ┆ 7.97  ┆ 6.18     ┆ 8.02  │
+│ name  ┆ no_shared_token          ┆ 1.74     ┆ 2.35  ┆ 3.78     ┆ 2.49  │
+│ name  ┆ only_generic_added       ┆ 16.39    ┆ 20.37 ┆ 16.89    ┆ 17.99 │
+│ name  ┆ only_generic_removed     ┆ 27.26    ┆ 17.68 ┆ 27.71    ┆ 15.06 │
+│ name  ┆ parentheses_added        ┆ 2.75     ┆ 3.67  ┆ 3.05     ┆ 3.64  │
+│ name  ┆ square_brackets          ┆ 2.64     ┆ 3.28  ┆ 2.95     ┆ 3.29  │
+│ name  ┆ token_shuffle            ┆ 5.71     ┆ 7.27  ┆ 5.92     ┆ 6.99  │
+│ name  ┆ typo                     ┆ 6.17     ┆ 8.02  ┆ 6.31     ┆ 7.45  │
+│ name  ┆ upper                    ┆ 16.53    ┆ 23.49 ┆ 2.84     ┆ 3.09  │
+└───────┴──────────────────────────┴──────────┴───────┴──────────┴───────┘
+
+# name operators per pair (0..5+):
+  ('S2', 'India') {0: 8.2, 1: 19.2, 2: 49.4, 3: 13.1, 4: 7.6, 5: 2.5}
+  ('S2', 'US') {0: 13.3, 1: 26.9, 2: 39.6, 3: 13.8, 4: 5.0, 5: 1.4}
+  ('S3', 'India') {0: 12.6, 1: 25.2, 2: 43.7, 3: 9.9, 4: 7.7, 5: 0.8}
+  ('S3', 'US') {0: 19.5, 1: 34.0, 2: 35.5, 3: 6.7, 4: 4.0, 5: 0.4}
+
+# examples
+  addr:empty                    'NY, Unit Unit 101, Fulton, 205 Oak Street'                  -> ''
+  addr:empty                    '7, Boat Club Road, R.A Puram, Chennai, Tamil Nadu'          -> ''
+  addr:exact                    'C-15, Sector 65, Noida, Gautam Buddha Nagar, Uttar Pradesh' -> 'C-15, Sector 65, Noida, Gautam Buddha Nagar, Uttar Pradesh'
+  addr:exact                    'Wz-65A U G/F Guru Nanak Nagar Gali No-2, New Delhi, West Delhi, Delhi' -> 'Wz-65A U G/F Guru Nanak Nagar Gali No-2, New Delhi, West Delhi, Delhi'
+  addr:fewer_parts              'MA, Everett, Unit 2, 19 Stevenson Avenue'                   -> '19 STEVENSON AVENUE, EVERETT, MA'
+  addr:fewer_parts              'Ankamvetti Kavala, Puthupariyaram P.O, Manakkadu, Thodupuzha, Thodupuzha, Idukki, Kerala' -> 'Ankamvetti Kavala, Puthupariyaram P.o, Manakkadu, Thodupuzha, Idukki, Keralam'
+  addr:hn_extended              'Bangalore, Karnataka, 1St Floor, 23Rd Cross Ideal Homes Township, Rajarajeshwari Nag, Ar, No.718' -> 'No.718, Bangalore, KA'
+  addr:hn_extended              'Bend, Unit Unit 1, OR, 1514 Overturf Court'                 -> '1514 OVERTURF CT, BEND, OR'
+  addr:hn_leading_digit_dropped '4948 Cypress Point, Independence, OH'                       -> '948 CYPRESS PT, INDEPENEDNCE, OH'
+  addr:hn_leading_digit_dropped 'P-1602, Jmd Gardens, Sohna Road, Near Subhash Chowk, Sector 33, Gurugram, Gurgaon, Haryana' -> 'P-602, Gurgaon, हरियाणा'
+  addr:hn_missing               '1084 Crestview Drive, Show Low, AZ'                         -> 'CRESTVIEW DR, SHOW LOW, AZ'
+  addr:hn_missing               'Atghara Sitakundu, Baruipur, South 24 Parganas, West Bengal' -> 'ATGHARA SITAKUNDU, BARUIPUR, West Bengal'
+  addr:hn_one_digit_changed     'Plot No.8G/3, Kh.No 1589/1-4, G.F, Mulberry Lane, Chhatarpur, South West Delhi, Delhi' -> '#G/3 , KH.NO 1589/1-4, G.F, MULBERRY LANE, CHHATARPUR, SOUTH WEST DELHI, Delhi'
+  addr:hn_one_digit_changed     '1432 66 Street, Brooklyn, NY'                               -> '2432 66 STREET, BROOKLYN, NY'
+  addr:hn_other                 'MA, Everett, Unit 2, 19 Stevenson Avenue'                   -> '19 STEVENSON AVENUE, EVERETT, MA'
+  addr:hn_other                 'Malapuram, Naduthodi Complex, Melmuri 27, Melmuri P.O, Ernad, Kerala, Malappuram, Door No. 39/290 C' -> '#39/290 C, MALAPPURAM, MALAPURAM, Kerala'
+  addr:hn_same                  'Madathil Buildings, Door No 7/374/A Central Junction, Puthuppally, Kottayam, Kerala' -> 'Kerala, MADATHIL BUILDINGS, DOOR NO 7/374/A CENTRAL JUNCTION, PUTHUPPALLY, KOTTAYAM'
+  addr:hn_same                  'F- 104, Plot No. 7, Pankaj Plaza, Lsc, Surajmal Vihar, East Delhi, Delhi' -> 'NO 414 F- 104, PLOT NO. 7, PANKAJ PLAZA, LSC, SURAJMAL VIHAR, EAST DELHI, N/A, Delhi'
+  addr:hn_zero_padded           '1500 Fellows Place, Unit 3B, Columbia, MO'                  -> '01500 FELLOWS PL, COLUMBIA, MO'
+  addr:hn_zero_padded           'Telangana, Hyderabad, Vayu Block, My Home Navadweepa Apts., Madhapur, Hitech City, Flat No.105' -> 'Telangana, HYDERABAD, NO 00105, VAYU BLOCK, MY HOME NAVADWEEPA APTS., MADHAPUR, HITECH CITY'
+  addr:indic_script             'Plot No 63-D, Ground Floor Khasra No 1142 Block-B, Pocket-4, Rang Puri Extn., Delhi, New Delhi, Delhi' -> 'PLOT NO 63-D. , GROUND FLOOR KHASRA NO 1142 BLOCK-B, POCKET-4, RANG PURI EXTN., DELHI, दिल्ली'
+  addr:indic_script             'Old No.3, New No.5, Angalamman Koil, 1St Street, Maduvankarai, Chennai, Tamil Nadu' -> 'OLD NO.##3 , NEW NO.5, ANGALAMMAN KOIL, 1ST STREET, MADUVANKARAI, CHENNAI, தமிழ்நாடு'
+  addr:more_parts               'F- 104, Plot No. 7, Pankaj Plaza, Lsc, Surajmal Vihar, East Delhi, Delhi' -> 'NO 414 F- 104, PLOT NO. 7, PANKAJ PLAZA, LSC, SURAJMAL VIHAR, EAST DELHI, N/A, Delhi'
+  addr:more_parts               '9310 Elkton Pike, Elkton, TN'                               -> '9310 ELKTON PIKE, PMB 6178, ELKTON, TN'
+  addr:na_token                 'F- 104, Plot No. 7, Pankaj Plaza, Lsc, Surajmal Vihar, East Delhi, Delhi' -> 'NO 414 F- 104, PLOT NO. 7, PANKAJ PLAZA, LSC, SURAJMAL VIHAR, EAST DELHI, N/A, Delhi'
+  addr:na_token                 '2797 Fishing Ford Road, Belfast, TN'                        -> '2797 FISHING FOD RD, N/A, BELFAST, TN'
+  addr:no_shared_token          '203 13th Street, Unit Unit 458, Gearhart, OR'               -> '0203 13st Saint, PO Box 6340, Saside, Oregon'
+  addr:no_shared_token          '3118 100th Street, Lubbock, TX'                             -> '3326 100rd St, Lubbck, Texas'
+  addr:parts_reordered          'MA, Everett, Unit 2, 19 Stevenson Avenue'                   -> '19 STEVENSON AVENUE, EVERETT, MA'
+  addr:parts_reordered          'F- 104, Plot No. 7, Pankaj Plaza, Lsc, Surajmal Vihar, East Delhi, Delhi' -> 'NO 414 F- 104, PLOT NO. 7, PANKAJ PLAZA, LSC, SURAJMAL VIHAR, EAST DELHI, N/A, Delhi'
+  addr:parts_rotated_only       'Madathil Buildings, Door No 7/374/A Central Junction, Puthuppally, Kottayam, Kerala' -> 'Kerala, MADATHIL BUILDINGS, DOOR NO 7/374/A CENTRAL JUNCTION, PUTHUPPALLY, KOTTAYAM'
+  addr:parts_rotated_only       '7735 39, Lebanon, IN'                                       -> '7735 39, IN, LEBANON'
+  addr:state_spelled_out        'Unit UNIT 1077, 11500 Cochise Drive, AZ, Scottsdale'        -> '11500. Cochise Dr, # UNIT 1077, Scottsdale Fountain Hills, Arizona'
+  addr:state_spelled_out        '357 Brightwood Drive, Marion, OH'                           -> '357-361 Brightwood Dr, Marion, Ohio'
+  addr:upper                    'MA, Everett, Unit 2, 19 Stevenson Avenue'                   -> '19 STEVENSON AVENUE, EVERETT, MA'
+  addr:upper                    '114639 Dutchess Creek Circle, Checotah, OK'                 -> '114639 DUTCHESS CREEK CIRCLE, CEHCOTAH, OK'
+  addr:vowel_dropped_abbrev     '2600 Hiking Trail, NC, Raleigh'                             -> '2600-2602 HIKING TRL, RALEIGH TOWNSHIP, NC'
+  addr:vowel_dropped_abbrev     '11 Arrow Trail, Lancaster, NY'                              -> '11 ARROW TRL, N/A, LANCASTER, NY'
+  name:accent_added             'Best Thunder LLC'                                           -> 'Best Thúnder LLC LLC'
+  name:accent_added             'Southern Standard LLC'                                      -> 'Southern Stándard LLC'
+  name:accent_added             'Dental Empire Group'                                        -> 'Dental Emdgir Gróup'
+  name:cosmetic_only            'VT Instruments Corp'                                        -> 'VT INSTRUMENTS CORP'
+  name:cosmetic_only            'Shubham & Brothers Limited'                                 -> 'shubham & brothers limited'
+  name:cosmetic_only            'Neile Noyes Anchor Electric, LLC'                           -> 'NEILE NOYES ANCHOR ELECTRIC, LLC'
+  name:domain                   'N B Nicholas Trailblazer LLC'                               -> 'nbnicholas.com'
+  name:domain                   'Element & Sons Private Limited'                             -> 'ELEMENTSONS.COM'
+  name:domain                   'Chiropractic Star Partners LLC'                             -> 'chiropracticstarpartners.com'
+  name:exact                    'Franklin Corporation'                                       -> 'Franklin Corporation'
+  name:exact                    'Lubbock Vista Inc'                                          -> 'Lubbock Vista Inc'
+  name:exact                    'Vertex, LLC'                                                -> 'Vertex, LLC'
+  name:handle                   "Pagel's Coastal Therapy LLC"                                -> '@pagelscoastal'
+  name:handle                   'Behavioral Health Group'                                    -> '@Behavioralhealth'
+  name:handle                   'Midnapore Mutual Private Limited'                           -> '@MIDNAPOREMUTUAL'
+  name:indic_script             'Shivam Consulting'                                          -> 'శివం కన్సల్టింగ్'
+  name:indic_script             'Dynamic Builders Private Limited'                           -> 'ഡൈനാമിക് ബിൽഡേഴ്സ് പ്രൈവറ്റ് ലിമിറ്റഡ്'
+  name:indic_script             'Bright Software Private Limited'                            -> 'ব্রাইট সফটওয়্যার প্রাইভেট লিমিটেড'
+  name:junk_prefix              'Youth Association, LLC'                                     -> '>> The Youth Association, LLC'
+  name:junk_prefix              "Pagel's Coastal Therapy LLC"                                -> '@pagelscoastal'
+  name:junk_prefix              'Mdue Superspeciality Private Limited'                       -> '#Mduesuperspeciality'
+  name:leet_digit               'Planet Traders Limited'                                     -> 'P1anet Traders Limited'
+  name:leet_digit               '584-585 North Owners Corp'                                  -> '584-585 N0RTH OWNERS CORP'
+  name:leet_digit               'Al Logistics Private Limited'                               -> 'Dr AL L0GISTICS PRIVATE  LIMITED'
+  name:legal_added              'Prairie Trust'                                              -> 'PRAIRIE TRUST CORPORATION'
+  name:legal_added              'Cascade League'                                             -> 'Cascade League Inc'
+  name:legal_added              'Charmane Guzman Platinum Oaktree LLC'                       -> 'Charmane Guzman Platinum Oaktree L.L.C.'
+  name:legal_removed            'Apex (India) Rao Private Limited'                           -> 'Apex (India) Rao Psrlate Limited'
+  name:legal_removed            'Signature Mortgage Innovations Inc'                         -> 'Signature-Mortgage Innovations'
+  name:legal_removed            'N B Nicholas Trailblazer LLC'                               -> 'nbnicholas.com'
+  name:lower                    'Shubham & Brothers Limited'                                 -> 'shubham & brothers limited'
+  name:lower                    'N B Nicholas Trailblazer LLC'                               -> 'nbnicholas.com'
+  name:lower                    'Chiropractic Star Partners LLC'                             -> 'chiropracticstarpartners.com'
+  name:no_shared_token          'Modern Global Private Limited'                              -> 'Wexkelo'
+  name:no_shared_token          'Mdue Superspeciality Private Limited'                       -> '#Mduesuperspeciality'
+  name:no_shared_token          'Heineman Biosciences Inc'                                   -> '#Heinemanbiosciences'
+  name:only_generic_added       'Youth Association, LLC'                                     -> '>> The Youth Association, LLC'
+  name:only_generic_added       'Womens Health Midwest Specialists LLC'                      -> 'The Womens Health Midwest Specialists LLC'
+  name:only_generic_added       'Parbati Products Private Limited'                           -> 'Parbati Products Limited Services Services'
+  name:only_generic_removed     'Apex (India) Rao Private Limited'                           -> 'Apex (India) Rao Psrlate Limited'
+  name:only_generic_removed     'Signature Mortgage Innovations Inc'                         -> 'Signature-Mortgage Innovations'
+  name:only_generic_removed     'Belcher Interprivate LLC'                                   -> 'Belcher Interprivate'
+  name:parentheses_added        'James Brc'                                                  -> 'Jahsdes (Brc) (Brc)'
+  name:parentheses_added        'Peridus Purecycle'                                          -> 'Peridus (Purecyble)'
+  name:parentheses_added        'United & Partners Private Limited'                          -> 'United & Partners Prívate (Limited)'
+  name:square_brackets          'Agt Structural'                                             -> 'Agt Structural [Limited]'
+  name:square_brackets          'Yamuaksh Marketing Limited'                                 -> 'Yamuaksh Yamuaksh Marketing [Ltd]'
+  name:square_brackets          'Innovative Investments Private Limited'                     -> 'Innovative Investments Private [Ltd]'
+  name:token_shuffle            'Goldina Stewart Superior Music LLC'                         -> 'STEWART, GOLDINA SUPERIOR MUSIC LLC'
+  name:token_shuffle            'Beis Signature Glass PLLC'                                  -> 'Glass Beis Signature PLLC'
+  name:token_shuffle            'Oncology Complete Health LLC'                               -> 'LLC Oncology Complete Health'
+  name:typo                     'Interstate Systems LLC'                                     -> 'LLC lnterstate Systems'
+  name:typo                     'Planet Traders Limited'                                     -> 'P1anet Traders Limited'
+  name:typo                     'N B Nicholas Trailblazer LLC'                               -> 'nbnicholas.com'
+  name:upper                    'VT Instruments Corp'                                        -> 'VT INSTRUMENTS CORP'
+  name:upper                    'Neile Noyes Anchor Electric, LLC'                           -> 'NEILE NOYES ANCHOR ELECTRIC, LLC'
+  name:upper                    'Element & Sons Private Limited'                             -> 'ELEMENTSONS.COM'

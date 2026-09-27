@@ -1,0 +1,76 @@
+
+===== US: S1=1,323,633 pool=6,186,873 queries=5,000 true pairs=17,253  prep 13s
+  [nm] vocab=25,051 nnz/row=11.1 fwd matmul 63s for 5,000 queries
+  fwd nm k= 10: pair recall 0.5364
+  fwd nm k= 25: pair recall 0.6233
+  fwd nm k= 50: pair recall 0.6744
+  fwd nm k=100: pair recall 0.7200
+  rev nm target->S1 top- 1: 0.4819
+  rev nm target->S1 top- 3: 0.6321
+  rev nm target->S1 top-10: 0.7376
+  (nm took 166s)
+  [na] vocab=27,309 nnz/row=18.3 fwd matmul 111s for 5,000 queries
+  fwd na k= 10: pair recall 0.9360
+  fwd na k= 25: pair recall 0.9565
+  fwd na k= 50: pair recall 0.9659
+  fwd na k=100: pair recall 0.9731
+  rev na target->S1 top- 1: 0.9529
+  rev na target->S1 top- 3: 0.9660
+  rev na target->S1 top-10: 0.9755
+  (na took 328s)
+  [ad] vocab=17,288 nnz/row=13.4 fwd matmul 78s for 5,000 queries
+  fwd ad k= 10: pair recall 0.8148
+  fwd ad k= 25: pair recall 0.8692
+  fwd ad k= 50: pair recall 0.8894
+  fwd ad k=100: pair recall 0.9037
+  rev ad target->S1 top- 1: 0.7955
+  rev ad target->S1 top- 3: 0.8708
+  rev ad target->S1 top-10: 0.9139
+  (ad took 217s)
+  UNION fwd nm+na k=25: recall 0.9637  cand/S1 45.5
+  UNION fwd+rev10 nm+na k=25: recall 0.9899
+  UNION fwd nm+na k=50: recall 0.9722  cand/S1 92.9
+  UNION fwd+rev10 nm+na k=50: recall 0.9911
+  UNION fwd nm+na+ad k=25: recall 0.9769  cand/S1 63.4
+  UNION fwd+rev10 nm+na+ad k=25: recall 0.9915
+  UNION fwd nm+na+ad k=50: recall 0.9826  cand/S1 131.9
+  UNION fwd+rev10 nm+na+ad k=50: recall 0.9927
+  clusters fully covered (nm+na+ad k=50 + rev10): 0.9743
+
+===== India: S1=883,188 pool=4,133,346 queries=5,000 true pairs=17,414  prep 23s
+  [nm] vocab=22,755 nnz/row=10.2 fwd matmul 26s for 5,000 queries
+  fwd nm k= 10: pair recall 0.4096
+  fwd nm k= 25: pair recall 0.4818
+  fwd nm k= 50: pair recall 0.5410
+  fwd nm k=100: pair recall 0.6020
+  rev nm target->S1 top- 1: 0.3759
+  rev nm target->S1 top- 3: 0.4794
+  rev nm target->S1 top-10: 0.5653
+  (nm took 87s)
+  [na] vocab=32,551 nnz/row=19.1 fwd matmul 73s for 5,000 queries
+  fwd na k= 10: pair recall 0.8207
+  fwd na k= 25: pair recall 0.8584
+  fwd na k= 50: pair recall 0.8754
+  fwd na k=100: pair recall 0.8900
+  rev na target->S1 top- 1: 0.8489
+  rev na target->S1 top- 3: 0.8836
+  rev na target->S1 top-10: 0.9085
+  (na took 281s)
+  [ad] vocab=26,970 nnz/row=15.0 fwd matmul 64s for 5,000 queries
+  fwd ad k= 10: pair recall 0.7583
+  fwd ad k= 25: pair recall 0.8033
+  fwd ad k= 50: pair recall 0.8240
+  fwd ad k=100: pair recall 0.8419
+  rev ad target->S1 top- 1: 0.7345
+  rev ad target->S1 top- 3: 0.7950
+  rev ad target->S1 top-10: 0.8276
+  (ad took 217s)
+  UNION fwd nm+na k=25: recall 0.8807  cand/S1 47.2
+  UNION fwd+rev10 nm+na k=25: recall 0.9448
+  UNION fwd nm+na k=50: recall 0.8971  cand/S1 95.6
+  UNION fwd+rev10 nm+na k=50: recall 0.9480
+  UNION fwd nm+na+ad k=25: recall 0.9155  cand/S1 62.0
+  UNION fwd+rev10 nm+na+ad k=25: recall 0.9506
+  UNION fwd nm+na+ad k=50: recall 0.9301  cand/S1 127.2
+  UNION fwd+rev10 nm+na+ad k=50: recall 0.9558
+  clusters fully covered (nm+na+ad k=50 + rev10): 0.8829

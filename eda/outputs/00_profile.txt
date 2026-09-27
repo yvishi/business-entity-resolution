@@ -1,0 +1,161 @@
+/tmp/claude-0/-home-user-data-EDA/446ac9fa-1608-5548-bec5-a5866ae2b0d9/scratchpad/eda.py:7: DeprecationWarning: the argument `missing_utf8_is_empty_string` for `read_csv` is deprecated. It was renamed to `empty_string_is_null` in version 1.43.0.
+  return pl.read_csv(D + n, separator="\t", quote_char=None, infer_schema=False,
+### BASIC PROFILE
+
+train_source1: rows=2,206,821 unique_ids=2,206,821 id_prefixes=['S1-']
+  business_name: empty=0 (0.00%) distinct=1,539,229
+  business_address: empty=0 (0.00%) distinct=2,130,606
+  country: empty=0 (0.00%) distinct=2
+  country: [('US', 1323633, 59.98), ('India', 883188, 40.02)]
+  exact duplicate (name,addr,country) rows: 0
+  name len: mean=24.0 p50=24.0 p99=42.0 max=105
+  addr len: mean=52.1 p50=41.0 p99=124.0 max=256
+
+train_source2: rows=5,034,616 unique_ids=5,034,616 id_prefixes=['S2-']
+  business_name: empty=0 (0.00%) distinct=4,402,009
+  business_address: empty=168,967 (3.36%) distinct=4,337,262
+  country: empty=0 (0.00%) distinct=2
+  country: [('US', 3016817, 59.92), ('India', 2017799, 40.08)]
+  exact duplicate (name,addr,country) rows: 50,933
+  name len: mean=25.1 p50=25.0 p99=48.0 max=104
+  addr len: mean=46.2 p50=37.0 p99=118.0 max=249
+
+train_source3: rows=5,285,603 unique_ids=5,285,603 id_prefixes=['S3-']
+  business_name: empty=0 (0.00%) distinct=4,651,609
+  business_address: empty=175,916 (3.33%) distinct=4,632,765
+  country: empty=0 (0.00%) distinct=2
+  country: [('US', 3170056, 59.98), ('India', 2115547, 40.02)]
+  exact duplicate (name,addr,country) rows: 37,241
+  name len: mean=25.2 p50=25.0 p99=50.0 max=123
+  addr len: mean=46.7 p50=42.0 p99=115.0 max=240
+
+test_source1: rows=1,732,544 unique_ids=1,732,544 id_prefixes=['S1-']
+  business_name: empty=0 (0.00%) distinct=1,238,867
+  business_address: empty=0 (0.00%) distinct=1,677,483
+  country: empty=0 (0.00%) distinct=3
+  country: [('India', 809986, 46.75), ('US', 663106, 38.27), ('France', 259452, 14.98)]
+  exact duplicate (name,addr,country) rows: 0
+  name len: mean=23.8 p50=24.0 p99=42.0 max=92
+  addr len: mean=57.2 p50=50.0 p99=126.0 max=268
+
+test_source2: rows=4,887,273 unique_ids=4,887,273 id_prefixes=['S2-']
+  business_name: empty=0 (0.00%) distinct=4,311,041
+  business_address: empty=129,408 (2.65%) distinct=4,224,784
+  country: empty=0 (0.00%) distinct=3
+  country: [('India', 2312565, 47.32), ('US', 1871330, 38.29), ('France', 703378, 14.39)]
+  exact duplicate (name,addr,country) rows: 44,550
+  name len: mean=25.7 p50=25.0 p99=49.0 max=102
+  addr len: mean=50.4 p50=43.0 p99=120.0 max=269
+
+test_source3: rows=5,082,316 unique_ids=5,082,316 id_prefixes=['S3-']
+  business_name: empty=0 (0.00%) distinct=4,521,929
+  business_address: empty=136,098 (2.68%) distinct=4,456,436
+  country: empty=0 (0.00%) distinct=3
+  country: [('India', 2405000, 47.32), ('US', 1945701, 38.28), ('France', 731615, 14.4)]
+  exact duplicate (name,addr,country) rows: 32,154
+  name len: mean=25.7 p50=25.0 p99=50.0 max=103
+  addr len: mean=48.7 p50=43.0 p99=117.0 max=267
+
+### TEXT CHARACTERISTICS (train)
+shape: (13, 4)
+┌────────────────────┬───────────────┬───────────────┬───────────────┐
+│ column             ┆ train_source1 ┆ train_source2 ┆ train_source3 │
+│ ---                ┆ ---           ┆ ---           ┆ ---           │
+│ str                ┆ f64           ┆ f64           ┆ f64           │
+╞════════════════════╪═══════════════╪═══════════════╪═══════════════╡
+│ devanagari_name    ┆ 0.0           ┆ 5.35          ┆ 2.99          │
+│ non_ascii_name     ┆ 0.0           ┆ 15.19         ┆ 11.48         │
+│ all_upper_name     ┆ 0.0           ┆ 18.9          ┆ 2.96          │
+│ all_lower_name     ┆ 0.0           ┆ 5.75          ┆ 6.25          │
+│ junk_prefix_name   ┆ 0.14          ┆ 2.16          ┆ 2.16          │
+│ domain_like_name   ┆ 0.0           ┆ 3.95          ┆ 3.94          │
+│ digits_in_name     ┆ 1.61          ┆ 5.08          ┆ 5.12          │
+│ all_upper_addr     ┆ 0.0           ┆ 63.38         ┆ 0.02          │
+│ addr_starts_state  ┆ 3.84          ┆ 3.79          ┆ 1.45          │
+│ addr_has_unit      ┆ 11.23         ┆ 2.43          ┆ 5.88          │
+│ addr_has_zip5      ┆ 6.6           ┆ 6.5           ┆ 6.5           │
+│ addr_has_pin6      ┆ 0.08          ┆ 0.83          ┆ 0.8           │
+│ addr_no_street_num ┆ 3.49          ┆ 9.35          ┆ 9.2           │
+└────────────────────┴───────────────┴───────────────┴───────────────┘
+
+Junk prefixes (top, train S2+S3):
+  train_source1 [('#', 1400), ('(', 1149), ('@', 506), ('<', 104), ('.', 8), (')', 4), ('-', 3), ("'", 3), ('-.', 1), ('#.', 1), (').', 1), ('/', 1)]
+  train_source2 [('#', 17564), ('@', 16050), ('>>', 14764), ('***', 14643), ('--', 14564), ('...', 14429), ('(', 8474), ('[', 5949), ('&', 1151), ('<', 184), ('[[', 123), ('[(', 113)]
+  train_source3 [('#', 18474), ('@', 16476), ('***', 15330), ('...', 15151), ('>>', 15105), ('--', 15007), ('(', 9256), ('[', 6710), ('&', 1125), ('<', 213), ('[(', 132), ('((', 122)]
+
+Legal-form tokens (last word of name), top 15 per source:
+  train_source1 [('limited', 521915), ('llc', 377579), ('inc', 238306), ('ltd', 148595), ('pc', 47867), ('llp', 39725), ('corp', 33761), ('group', 32678), ('co', 25178), ('center', 22269), ('associates', 22165), ('pllc', 20531), ('partners', 19351), ('clinic', 18107), ('care', 16845)]
+  train_source2 [('llc', 422254), ('limited', 380095), ('ltd', 319650), ('inc', 289013), ('लिमिटेड', 190091), ('center', 133663), ('private', 109874), ('corp', 109097), ('co', 102113), ('services', 90179), ('partners', 84616), ('group', 75033), ('holdings', 57564), ('llp', 55612), ('corporation', 49875)]
+  train_source3 [('limited', 484402), ('llc', 453437), ('ltd', 339833), ('inc', 303389), ('center', 156721), ('private', 114697), ('corp', 106656), ('लिमिटेड', 106538), ('services', 105211), ('co', 99916), ('partners', 93954), ('group', 77789), ('llp', 64051), ('holdings', 58346), ('service', 49076)]
+
+### GROUND TRUTH
+/tmp/claude-0/-home-user-data-EDA/446ac9fa-1608-5548-bec5-a5866ae2b0d9/scratchpad/eda.py:61: DeprecationWarning: In Polars 2.0, the default behavior for `empty_as_null` will change to `False`. To keep the current behavior, explicitly set `empty_as_null=True`.
+  e = g.explode("m").filter(pl.col("m").is_not_null() & (pl.col("m") != ""))
+GT rows=2,206,821 unique S1=2,206,821 total links=7,638,365
+empty match lists: 123247
+S1 in GT: 2,206,821/2,206,821; GT ids not in S1: 0
+links per S1 (total): [(0, 123247), (1, 119157), (2, 375212), (3, 530841), (4, 484115), (5, 321957), (6, 164868), (7, 63968), (8, 18680), (9, 4205), (10, 534), (11, 37)]
+S2 matches per S1: [(0, 287745), (1, 789108), (2, 652779), (3, 333957), (4, 119078), (5, 24154)]
+S3 matches per S1: [(0, 266276), (1, 716417), (2, 668375), (3, 372443), (4, 145116), (5, 35378), (6, 2816)]
+S2: linked=3,693,619 of 5,034,616 (73.36%); linked ids missing from source=0; ids linked to >1 S1=0
+S3: linked=3,944,746 of 5,285,603 (74.63%); linked ids missing from source=0; ids linked to >1 S1=0
+
+### TRAIN/TEST OVERLAP
+S1: shared ids=0
+    shared exact (name|addr)=0
+S2: shared ids=0
+    shared exact (name|addr)=14
+S3: shared ids=0
+    shared exact (name|addr)=18
+
+### MATCHED-PAIR QUALITY (train)
+pairs joined: 7,638,365
+country agreement by target: [('S2', 1.0), ('S3', 1.0)]
+country confusion (S1 -> target, mismatches): []
+shape: (2, 4)
+┌──────┬────────────┬──────────────┬──────────────┐
+│ tsrc ┆ name_exact ┆ name_norm_eq ┆ addr_norm_eq │
+│ ---  ┆ ---        ┆ ---          ┆ ---          │
+│ str  ┆ f64        ┆ f64          ┆ f64          │
+╞══════╪════════════╪══════════════╪══════════════╡
+│ S2   ┆ 0.0473     ┆ 0.2032       ┆ 0.1253       │
+│ S3   ┆ 0.0455     ┆ 0.2052       ┆ 0.0432       │
+└──────┴────────────┴──────────────┴──────────────┘
+similarity on 20k sampled matched pairs:
+shape: (2, 7)
+┌──────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ tsrc ┆ name_p10 ┆ name_p25 ┆ name_p50 ┆ addr_p10 ┆ addr_p25 ┆ addr_p50 │
+│ ---  ┆ ---      ┆ ---      ┆ ---      ┆ ---      ┆ ---      ┆ ---      │
+│ str  ┆ f64      ┆ f64      ┆ f64      ┆ f64      ┆ f64      ┆ f64      │
+╞══════╪══════════╪══════════╪══════════╪══════════╪══════════╪══════════╡
+│ S2   ┆ 0.25     ┆ 0.717    ┆ 0.867    ┆ 0.485    ┆ 0.703    ┆ 0.859    │
+│ S3   ┆ 0.524    ┆ 0.718    ┆ 0.862    ┆ 0.413    ┆ 0.603    ┆ 0.797    │
+└──────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+random-pair name sim p50/p90/p99: [0.246, 0.379, 0.581]
+
+Example matched groups:
+  S1 "Children's Network" | '920 Colonial Drive, Landis, NC' | US
+     S2 "Children's Network" | '920 COLONIAL DRIVE, LANDIS, NC' | US
+     S2 'childrens.com' | 'NC, LANDIS, 920 COLONIAL DRIVE' | US
+     S2 "Children's Center" | 'NC, LANDIS, 920 COLONIAL DRIVE' | US
+     S3 "Children's Network" | 'Chna Grove, 620 Colonial Drive, North Carolina' | US
+     S3 "Children's Network" | '620 Colonial Dr, Chna Grove, North Carolina' | US
+     S3 "Children'S Nétwork" | '620 Colonial Drive, Chna Grove, North Carolina' | US
+  S1 'Big Yoga' | '21W 180 North Lane, Itasca, IL' | US
+     S2 'BIG YOGA CORPORATION' | 'ITASCA, IL, 21W 180 NRTH LN' | US
+  S1 'Victor Advisors' | 'House No-6, A-9 Kh. No 2762/738/7, 3Rd Floor Blk-Wz Kailash Park, New Delhi, West Delhi, Delhi' | India
+  S1 'Belle Smale Green Voya' | '166 Highland Avenue, Salem, OH' | US
+     S2 'BELLE SMALE GRIN VOYA' | '166 HIGHLAND AVE, SALEM, OH' | US
+     S3 'Belle Smale Green Voya Co' | 'Salem Townsihp, Ohio, 166 Highland Avenue' | US
+     S3 'Belle Smale Green Voya Co' | '166 Highland Ave, Salem Townsihp, Ohio' | US
+  S1 'Brc Educational Society' | 'Nr. Beil, Beside Bhakti Estate, Gidc, Plot No 10009/6, Ankleshwar, Vadodara, Gujarat' | India
+     S2 'Brc Society Educational' | '' | India
+     S3 'Brc Educational [Society]' | 'No 10009/6, Ankleshwar, N/A, GJ' | India
+     S3 'Brc Educational Society Ltd' | 'Plot No 10009/6, GJ, Ankleshwar, N/A, Nr. Beil, Beside Bhakti Estate, Gidc' | India
+     S3 'Sri Brc Educational' | 'No 10009/6, Ankleshwar, N/A, GJ' | India
+  S1 'Good Technology Pvt Ltd' | 'Rajgarh Bypass Square Opposite Tvs Showroom, Biaora, Rajgarh, Dhar, Madhya Pradesh' | India
+     S2 'Good Pvt Ltd Center' | 'RAJGARH BYPASS SQUARE OPPOSITE TVS SHOWROOM, BIAORA, RAJGARH, Madhya Pradesh' | India
+     S2 'गुड टेक्नोलॉजी प्रा. लि.' | 'RAJGARH BYPASS SQUARE OPPOSITE TVS SHOWROOM, BIAORA, DHAR, RAJGARH, Madhya Pradesh' | India
+     S3 'Good Technology Pvt' | 'Rajgarh Bypass Square Opposite Tvs Showroom, Biaora, Dhar, Rajgarh, MP' | India
+
+share first normalized name token: [('S2', 0.7096), ('S3', 0.6968)]

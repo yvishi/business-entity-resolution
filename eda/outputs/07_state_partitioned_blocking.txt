@@ -1,0 +1,2 @@
+S1 without parsable state: 0  pool without state: 222089 (3.59%; empty address 3.59%)
+CA: S1=37,409 pool=168,514  recall fwd=0.9454 fwd+rev=0.9513 (ceiling in-state 0.9526)  cand/S1=41.4  17.6s
